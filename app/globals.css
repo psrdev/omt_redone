@@ -1,26 +1,203 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #1bb4d5;
+  --primary-dark: #0068af;
+  --primary-gradient: linear-gradient(135deg, #1bb4d5, #0068af);
+
+  --bg-white: #ffffff;
+  --bg-muted: #f1f1f1;
+
+  --text-dark: #1a1a1a;
+  --text-medium: #5f6266;
+  --text-light: #929496;
+
+  --border-light: #e6e6e6;
+
+  --border-radius: 8px;
+
+  --font-body: var(--font-dm-sans);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* BASE */
+body {
+  font-family: var(--font-body), sans-serif;
+  color: var(--text-dark);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* NAVBAR */
+.navbar {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* NAV CONTAINER FIX */
+.navbar-nav {
+  gap: 28px;
+}
+
+/* Prevent wrapping */
+@media (min-width: 992px) {
+  .navbar-nav {
+    flex-wrap: nowrap;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* NAV LINKS */
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+  background: none;
+}
+
+/* UNDERLINE */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* CTA */
+.btn-primary {
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 50px;
+  padding: 8px 22px;
+}
+
+/* =========================
+   MEGA MENU DESKTOP
+========================= */
+
+.mega-dropdown {
+  position: static;
+}
+
+.mega-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+
+  background: var(--bg-white);
+  border-radius: 12px;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.mega-dropdown:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* LEFT PANEL */
+.mega-left {
+  background: var(--bg-muted);
+  padding: 30px;
+}
+
+.mega-tab {
+  padding: 12px;
+  font-size: 14px;
+  color: var(--text-medium);
+  cursor: pointer;
+  border-left: 2px solid transparent;
+}
+
+.mega-tab.active {
+  color: var(--primary);
+  font-weight: 600;
+  border-left: 2px solid var(--primary);
+}
+
+/* RIGHT PANEL */
+.mega-right {
+  padding: 30px 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 40px;
+}
+
+/* SIMPLE */
+.mega-simple {
+  padding: 30px;
+}
+
+/* TITLES */
+.mega-title {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* LINKS */
+.mega-link {
+  display: block;
+  font-size: 14px;
+  padding: 6px 0;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mega-link:hover {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+  padding: 10px 0;
+}
+
+.mobile-section {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.mobile-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-medium);
+  margin-bottom: 6px;
+}
+
+.mobile-link {
+  display: block;
+  font-size: 14px;
+  padding: 6px 0;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.mobile-link:hover {
+  color: var(--primary);
+}
+
+/* MOBILE FIX */
+@media (max-width: 991.98px) {
+  .nav-link::after {
+    display: none;
+  }
 }
