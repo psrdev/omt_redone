@@ -55,6 +55,28 @@ export const menuData = [
       },
     ],
   },
+  // {
+  //   label: "test tab",
+  //   mega: true,
+  //   type: "tabs-image",
+  //   tabs: [
+  //     {
+  //       label: "Company",
+  //       img: "https://picsum.photos/400/500",
+  //       link: "#",
+  //     },
+  //     {
+  //       label: "Group Profile",
+  //       img: "https://picsum.photos/400/500",
+  //       link: "#",
+  //     },
+  //     {
+  //       label: "Trust",
+  //       img: "https://picsum.photos/400/500",
+  //       link: "#",
+  //     },
+  //   ],
+  // },
   {
     label: "Solutions",
     mega: true,

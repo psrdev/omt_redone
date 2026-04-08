@@ -12,10 +12,10 @@ export default function Header() {
       <div className="container">
         <Link className="navbar-brand" href="/">
           <Image
-            src="/images/logo/outmazed-tourism-logo.svg"
+            src="/images/logo/outmazed-tourism-logo-horiz.svg"
             alt="Outmazed"
-            width={110}
-            height={90}
+            width={160}
+            height={50}
           />
         </Link>
 
