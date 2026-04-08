@@ -41,6 +41,7 @@ export const menuData = [
     label: "Our Brands",
     mega: true,
     type: "simple",
+    img: "https://picsum.photos/400/500",
     sections: [
       {
         title: "Brands",
@@ -58,6 +59,7 @@ export const menuData = [
     label: "Solutions",
     mega: true,
     type: "simple",
+    img: "https://picsum.photos/400/500",
     sections: [
       {
         title: "Solutions",
