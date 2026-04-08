@@ -8,7 +8,7 @@ import NavItem from "./NavItem";
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg bg-white shadow-sm">
+    <nav className="navbar navbar-expand-lg bg-white omt-shadow">
       <div className="container">
         <Link className="navbar-brand" href="/">
           <Image

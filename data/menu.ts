@@ -40,43 +40,42 @@ export const menuData = [
   {
     label: "Our Brands",
     mega: true,
-    type: "simple",
-    img: "https://picsum.photos/400/500",
+    type: "hover-image", // new type
+    img: "https://picsum.photos/400/500?random=10", // <-- default image
     sections: [
       {
         title: "Brands",
-        links: [
-          { label: "Outmazed Travel", href: "#" },
-          { label: "Global Visa Shop", href: "#" },
-          { label: "Wholesale Tourism", href: "#" },
-          { label: "The Global Corporates", href: "#" },
-          { label: "Tech & Stack", href: "#" },
+        items: [
+          {
+            label: "Outmazed Travel",
+            href: "https://outmazed.com",
+            img: "https://picsum.photos/400/500?random=1",
+          },
+          {
+            label: "Global Visa Shop",
+            href: "https://globalvisashop.com",
+            img: "https://picsum.photos/400/500?random=2",
+          },
+          {
+            label: "Wholesale Tourism",
+            href: "https://wholesaletourism.com",
+            img: "https://picsum.photos/400/500?random=3",
+          },
+          {
+            label: "The Global Corporates",
+            href: "https://globalcorporates.com",
+            img: "https://picsum.photos/400/500?random=4",
+          },
+          {
+            label: "Tech & Stack",
+            href: "https://techstack.com",
+            img: "https://picsum.photos/400/500?random=5",
+          },
         ],
       },
     ],
   },
-  // {
-  //   label: "test tab",
-  //   mega: true,
-  //   type: "tabs-image",
-  //   tabs: [
-  //     {
-  //       label: "Company",
-  //       img: "https://picsum.photos/400/500",
-  //       link: "#",
-  //     },
-  //     {
-  //       label: "Group Profile",
-  //       img: "https://picsum.photos/400/500",
-  //       link: "#",
-  //     },
-  //     {
-  //       label: "Trust",
-  //       img: "https://picsum.photos/400/500",
-  //       link: "#",
-  //     },
-  //   ],
-  // },
+
   {
     label: "Solutions",
     mega: true,

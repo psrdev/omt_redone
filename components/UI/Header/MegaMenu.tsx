@@ -1,7 +1,10 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function MegaMenu({ item, activeTab, setActiveTab }: any) {
+  const [hoveredImg, setHoveredImg] = useState<string>(item.img || "");
+
   return (
     <div className="mega-menu d-none d-lg-flex">
       {/* Tabs Layout */}
@@ -18,7 +21,6 @@ export default function MegaMenu({ item, activeTab, setActiveTab }: any) {
               </div>
             ))}
           </div>
-
           <div className="mega-right">
             {item.tabs[activeTab].links.map((link: any, j: number) => (
               <a key={j} href={link.href} className="mega-link">
@@ -47,38 +49,46 @@ export default function MegaMenu({ item, activeTab, setActiveTab }: any) {
               <Image
                 src={item.img}
                 alt="Menu Visual"
-                className="img-fluid"
                 width={400}
-                height={300}
+                height={500}
+                className="img-fluid"
               />
             </div>
           )}
         </div>
       )}
 
-      {/* Tabs with Image */}
-      {item.type === "tabs-image" && (
+      {/* Hover Image Layout */}
+      {item.type === "hover-image" && (
         <div className="d-flex w-100">
           <div className="mega-left">
-            {item.tabs.map((tab: any, index: number) => (
-              <div
-                key={index}
-                className={`mega-tab ${activeTab === index ? "active" : ""}`}
-                onMouseEnter={() => setActiveTab(index)}
-              >
-                <a href={tab.link}>{tab.label}</a>
+            {item.sections?.map((section: any, j: number) => (
+              <div key={j} className="mega-hover-list">
+                <h6 className="mega-title">{section.title}</h6>
+                {section.items.map((link: any, k: number) => (
+                  <a
+                    key={k}
+                    href={link.href}
+                    className="mega-link"
+                    onMouseEnter={() => setHoveredImg(link.img)}
+                    onMouseLeave={() => setHoveredImg(item.img)} // revert to default
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
             ))}
           </div>
-
           <div className="mega-right">
-            <Image
-              src={item.tabs[activeTab]?.img}
-              alt={item.tabs[activeTab]?.label}
-              className="img-fluid"
-              width={400}
-              height={500}
-            />
+            {hoveredImg && (
+              <Image
+                src={hoveredImg}
+                alt="Hover Image"
+                width={400}
+                height={500}
+                className="img-fluid"
+              />
+            )}
           </div>
         </div>
       )}
