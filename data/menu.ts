@@ -41,7 +41,7 @@ export const menuData = [
     label: "Our Brands",
     mega: true,
     type: "hover-image", // new type
-    img: "https://picsum.photos/400/500?random=10", // <-- default image
+    img: "/images/brands/OMT.svg", // <-- default image
     sections: [
       {
         title: "Brands",
@@ -49,12 +49,12 @@ export const menuData = [
           {
             label: "Outmazed Travel",
             href: "https://outmazed.com",
-            img: "https://picsum.photos/400/500?random=1",
+            img: "/images/brands/OT.svg",
           },
           {
             label: "Global Visa Shop",
             href: "https://globalvisashop.com",
-            img: "https://picsum.photos/400/500?random=2",
+            img: "/images/brands/GVS.svg",
           },
           {
             label: "Wholesale Tourism",
