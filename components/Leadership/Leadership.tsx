@@ -107,7 +107,7 @@ export default function Leadership() {
       </section>
 
       {/* LEADERSHIP PHILOSOPHY */}
-      <section className="py-5 bg-light">
+      {/* <section className="py-5 bg-light">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -131,7 +131,7 @@ export default function Leadership() {
             sustainable, and high-impact travel solutions.
           </motion.p>
         </motion.div>
-      </section>
+      </section> */}
       <section className="py-5">
         <div className="container">
           <div className="container text-center">
@@ -150,7 +150,7 @@ export default function Leadership() {
             <LeaderCard
               image="/images/leadership/aysha.png"
               name="Aysha Omar"
-              col={6}
+              col={12}
               role="General Manager"
               badges={["25+ Yrs Tourism", "Ops Expert"]}
               content={[
@@ -164,6 +164,7 @@ export default function Leadership() {
             <LeaderCard
               image="/images/leadership/berna.png"
               name="Berna Korkmaz"
+              col={6}
               role="Global Commercial Director"
               badges={["20+ Yrs Sourcing", "Webbeds Alumni"]}
               content={[
@@ -178,6 +179,7 @@ export default function Leadership() {
               image="/images/leadership/karan.png"
               name="Karan Wadhwani"
               role="Head of Technology"
+              col={6}
               badges={["8+ Yrs Tech", "IP Leader"]}
               content={[
                 "Karan is a Travel Technology specialist with over 8 years of experience building scalable, secure, and performance driven platforms for the Travel & Tourism industry. As Head of Technology at OutMazed® Tourism, he leads the execution of the company’s technology roadmap, developing in-house solutions that enhance operational efficiency, strengthen margins, improve customer retention, and create long-term enterprise value.",
