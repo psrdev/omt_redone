@@ -76,7 +76,11 @@ export default function Footer() {
               Contact
             </p>
             <p className="text-light">
-              <i className="fa-solid fa-phone me-2"></i> +971 50 343 1800
+              <i
+                className="fa-solid fa-phone me-2"
+                style={{ fontSize: "14px" }}
+              ></i>{" "}
+              +971 50 343 1800
             </p>
             <p className="text-light">
               <i className="fa-solid fa-envelope me-2"></i>{" "}
