@@ -14,7 +14,6 @@ import {
 export default function Leadership() {
   return (
     <>
-      {/* INTRO */}
       <motion.section
         variants={stagger}
         initial="hidden"
@@ -35,11 +34,9 @@ export default function Leadership() {
         </div>
       </motion.section>
 
-      {/* LEADER PROFILE */}
       <section className="py-5">
         <div className="container">
           <div className="row align-items-center g-5">
-            {/* IMAGE */}
             <div className="col-lg-5">
               <motion.img
                 src="/images/leadership/AN.webp"
@@ -49,7 +46,6 @@ export default function Leadership() {
               />
             </div>
 
-            {/* CONTENT */}
             <motion.div
               variants={stagger}
               initial="hidden"
@@ -146,7 +142,6 @@ export default function Leadership() {
             </motion.p>
           </div>
           <div className="row g-4">
-            {/* CARD 1 */}
             <LeaderCard
               image="/images/leadership/aysha.png"
               name="Aysha Omar"
@@ -160,7 +155,6 @@ export default function Leadership() {
               ]}
             />
 
-            {/* CARD 2 */}
             <LeaderCard
               image="/images/leadership/berna.png"
               name="Berna Korkmaz"
@@ -170,11 +164,10 @@ export default function Leadership() {
               content={[
                 "Berna Korkmaz is a seasoned tourism and hospitality commercial leader with over 20 years of experience in global B2B and B2C sourcing and distribution. She has played instrumental roles in scaling international travel businesses, including being part of the founding success of Lots of Hotels (now WebBeds) and contributing to the growth of TDS Travel and Miki Travel across new regions.",
                 "At OutMazed® Tourism, Berna leads Global Commercial Strategy and API Connectivity, driving supplier partnerships, expanding distribution networks, and strengthening global contracting frameworks.",
-                "At OutMazed®, she leads Global Commercial Strategy and API Connectivity.",
+               
               ]}
             />
 
-            {/* CARD 3 */}
             <LeaderCard
               image="/images/leadership/karan.png"
               name="Karan Wadhwani"
@@ -190,7 +183,6 @@ export default function Leadership() {
         </div>
       </section>
 
-      {/* FUTURE VISION */}
       <section className="py-5">
         <div className="container">
           <div className="row align-items-center g-5">
