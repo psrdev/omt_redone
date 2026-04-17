@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUp, stagger, VIEWPORT } from "../../utils/motion";
+import { fadeUp, stagger, VIEWPORT, imageReveal } from "../../utils/motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BusinessModels from "./BusinessModels";
 import Image from "next/image";
@@ -34,6 +34,7 @@ import {
   faGlobe,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
+import StartupOptions from "./StartUpOptions";
 
 const pillars = [
   {
@@ -92,15 +93,20 @@ export default function AboutUs() {
       <section className="py-5">
         <div className="container">
           <div className="row justify-content-center align-items-center g-4">
-            <div className="col-md-4 justify-content-center d-flex">
+            <motion.div
+              variants={imageReveal}
+              initial="hidden"
+              animate="show"
+              className="col-md-4 justify-content-center d-flex"
+            >
               <Image
                 src="/images/about/skyline.jpg"
                 alt="About Us"
-                className="img-fluid rounded shadow-light"
+                className="img-fluid shadow-light"
                 width={320}
                 height={480}
               />
-            </div>
+            </motion.div>
             <div className="col-md-8">
               <motion.div
                 variants={stagger}
@@ -140,9 +146,10 @@ export default function AboutUs() {
 
       {/* CORE MODELS */}
       <BusinessModels />
+      {/* <StartupOptions /> */}
 
       {/* PRODUCT PORTFOLIO */}
-      <section className="py-5 bg-light">
+      <section className="py-5 ">
         <div className="container">
           <div className="mb-4">
             <h2 className="text-primary fw-bold">
@@ -154,10 +161,13 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className="row g-4">
+          <motion.div variants={stagger} className="row g-4">
             {items.map((item, index) => (
-              <div key={index} className="col-12 col-sm-6 col-lg-3">
-                <div className="card h-100 border-0 shadow-sm product-card text-center">
+              <div key={index} className="col-12 col-sm-6 col-lg-3 ">
+                <motion.div
+                  variants={fadeUp}
+                  className="card h-100 border-0 product-card bg-light text-center clipped-box"
+                >
                   <div className="card-body py-4">
                     <FontAwesomeIcon
                       icon={item.icon}
@@ -167,10 +177,10 @@ export default function AboutUs() {
 
                     <h6 className="fw-semibold mb-0">{item.title}</h6>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
