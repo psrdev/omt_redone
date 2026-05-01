@@ -34,56 +34,45 @@ import {
   faGlobe,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import StartupOptions from "./StartUpOptions";
 
-const pillars = [
-  {
-    title: "Tech Infrastructure",
-    icon: faMicrochip,
-  },
-  {
-    title: "Commercial Contracting Strength",
-    icon: faHandshake,
-  },
-  {
-    title: "Operational Execution",
-    icon: faScrewdriverWrench,
-  },
-  {
-    title: "Strategic Distribution",
-    icon: faGlobe,
-  },
-  {
-    title: "Destination Expertise",
-    icon: faLocationDot,
-  },
-];
+import Pillars from "./Pillars";
 
 const brands = [
   {
     title: "OutMazed Travel",
     type: "B2C",
     desc: "Consumer travel distribution channel delivering curated travel experiences.",
-  },
-  {
-    title: "Wholesale Tourism",
-    type: "B2B",
-    desc: "High-volume travel distribution platform for global travel agents and partners.",
+    href: "https://outmazed.com",
+    img: "/images/brands/OT.svg",
   },
   {
     title: "Global Visa Shop",
     type: "B2C",
     desc: "One-stop global visa platform including UAE tourist visa solutions.",
+    href: "https://globalvisashop.com",
+    img: "/images/brands/GVS.svg",
   },
+  {
+    title: "Wholesale Tourism",
+    type: "B2B",
+    desc: "High-volume travel distribution platform for global travel agents and partners.",
+    href: "https://wholesaletourism.com",
+    img: "https://picsum.photos/400/500?random=3",
+  },
+
   {
     title: "The Global Corporates",
     type: "Enterprise",
     desc: "Smart corporate travel management solution for seamless business travel.",
+    href: "https://globalcorporates.com",
+    img: "https://picsum.photos/400/500?random=4",
   },
   {
     title: "Tech & Stack",
     type: "Technology",
     desc: "Core technology division powering OutMazed’s distribution infrastructure.",
+    href: "https://techstack.com",
+    img: "https://picsum.photos/400/500?random=5",
   },
 ];
 
@@ -146,14 +135,14 @@ export default function AboutUs() {
 
       {/* CORE MODELS */}
       <BusinessModels />
-      {/* <StartupOptions /> */}
 
       {/* PRODUCT PORTFOLIO */}
       <section className="py-5 ">
         <div className="container">
           <div className="mb-4">
             <h2 className="text-primary fw-bold">
-              Comprehensive Product Portfolio
+              Comprehensive{" "}
+              <span className="text-muted">Product Portfolio</span>
             </h2>
             <p className="text-muted">
               A complete ecosystem of travel products powering global
@@ -166,7 +155,7 @@ export default function AboutUs() {
               <div key={index} className="col-12 col-sm-6 col-lg-3 ">
                 <motion.div
                   variants={fadeUp}
-                  className="card h-100 border-0 product-card bg-light text-center clipped-box"
+                  className="card h-100 border-0 product-card  clipped-box"
                 >
                   <div className="card-body py-4">
                     <FontAwesomeIcon
@@ -183,68 +172,9 @@ export default function AboutUs() {
           </motion.div>
         </div>
       </section>
+      <Pillars />
 
       {/* DIFFERENTIATOR */}
-      <section className="engine-premium py-5">
-        <div className="container">
-          {/* HERO */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-5"
-          >
-            <h2 className="engine-title fw-bold display-6 mb-3">
-              Technology-Driven. Volume-Focused. Margin-Controlled.
-            </h2>
-
-            <p className="engine-subtitle">
-              A travel distribution engine built on scale, precision, and
-              intelligence.
-            </p>
-          </motion.div>
-
-          {/* PILLARS */}
-          <div className="row g-4 justify-content-center mb-5">
-            {pillars.map((item, index) => (
-              <div key={index} className="col-12 col-md-6 col-lg-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="engine-card p-4 text-center h-100"
-                >
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    className="mb-3"
-                    style={{ fontSize: "22px" }}
-                  />
-
-                  <h6 className="mb-0 fw-semibold">{item.title}</h6>
-                </motion.div>
-              </div>
-            ))}
-          </div>
-
-          {/* MANIFESTO */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="engine-quote text-center mx-auto"
-            style={{ maxWidth: "800px" }}
-          >
-            <p className="mb-2">We are not just a travel agency.</p>
-            <p className="mb-2">We are not just a technology provider.</p>
-
-            <h5 className="fw-bold mt-3">
-              We are a Travel Distribution Engine built from Dubai for the
-              world.
-            </h5>
-          </motion.div>
-        </div>
-      </section>
 
       {/* BRANDS */}
       <section className="py-5 bg-light">
@@ -256,7 +186,9 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="mb-4"
           >
-            <h2 className="text-primary fw-bold">Our Brand Ecosystem</h2>
+            <h2 className="text-primary fw-bold">
+              Our <span className="text-muted">Brand Ecosystem</span>
+            </h2>
             <p className="text-muted">
               A unified portfolio of travel, technology, and distribution
               brands.
@@ -272,8 +204,17 @@ export default function AboutUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="brand-card p-4 h-100"
+                  className="brand-card p-4 h-100 position-relative"
                 >
+                  <div className="mb-3 d-flex align-items-center justify-content-center">
+                    <Image
+                      src={brand.img}
+                      alt={brand.title}
+                      className="img-fluid  brand-img"
+                      width={200}
+                      height={200}
+                    />
+                  </div>
                   {/* TYPE BADGE */}
                   <span className="brand-badge mb-3 d-inline-block">
                     {brand.type}

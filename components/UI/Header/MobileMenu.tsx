@@ -37,6 +37,17 @@ export default function MobileMenu({ item, index }: any) {
                 ))}
               </div>
             ))}
+          {item.type === "hover-image" &&
+            item.sections?.map((section: any, s: number) => (
+              <div key={s} className="mobile-section">
+                <div className="mobile-title">{section.title}</div>
+                {section.items.map((link: any, l: number) => (
+                  <a key={l} href={link.href} className="mobile-link">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            ))}
         </div>
       </div>
     </div>

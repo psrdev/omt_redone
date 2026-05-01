@@ -81,7 +81,9 @@ export default function BusinessModels() {
           viewport={{ once: true }}
           className=" mb-4"
         >
-          <h2 className="text-primary fw-bold">Our 4 Core Business Models </h2>
+          <h2 className="text-primary fw-bold">
+            Our 4 Core <span className="text-muted">Business Models</span>
+          </h2>
           <p className="text-muted">
             A structured ecosystem powering global travel distribution
           </p>

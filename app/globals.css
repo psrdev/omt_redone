@@ -392,9 +392,9 @@ h6 {
   color: var(--text-medium);
 }
 .product-card {
-  border-radius: 14px;
+  border-radius: 0.2rem;
   transition: all 0.25s ease;
-  background: #ffffff;
+  background: var(--bg-muted);
 }
 
 .product-card:hover {
@@ -416,9 +416,6 @@ h6 {
 }
 
 .engine-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--border-radius);
   transition: var(--transition-medium);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
@@ -427,10 +424,6 @@ h6 {
   transform: translateY(-6px);
   border-color: var(--primary);
   box-shadow: 0 12px 30px rgba(0, 104, 175, 0.12);
-}
-
-.engine-card svg {
-  color: var(--primary);
 }
 
 .engine-quote {
@@ -509,7 +502,7 @@ h6 {
 }
 
 .clipped-wrapper {
-  background: --var(--off-white);
+  background: --var(--bg-muted);
   clip-path: polygon(
     30px 0%,
     100% 0%,
@@ -521,13 +514,21 @@ h6 {
 }
 .clipped-box {
   position: relative;
-  background: var(--bg-white);
+
   clip-path: polygon(
-    20px 0%,
+    0% 0%,
     100% 0%,
-    100% calc(100% - 20px),
-    calc(100% - 20px) 100%,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
     0% 100%,
-    0% 20px
+    0% 0%
   );
+}
+.bg-gradient {
+  /* background: red; */
+  background: var(--bg-muted);
+}
+
+.brand-img {
+  padding: 1px;
 }

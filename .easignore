@@ -1,0 +1,9 @@
+# Copy everything from your .gitignore file here first, then modify:
+
+# Comment this line out so EAS includes the android folder
+
+# /android
+
+# Keep ignoring these as normal
+
+/node_modules
