@@ -103,6 +103,24 @@ export const menuData = [
   },
   {
     label: "Contact",
-    href: "#",
+    mega: true,
+    type: "simple",
+    img: "https://picsum.photos/400/500",
+    sections: [
+      {
+        title: "Contact Us",
+        links: [
+          { label: "B2C", href: "/contact/b2c" },
+          { label: "B2B", href: "/contact/b2b" },
+          { label: "CORPORATE", href: "/contact/corporate" },
+          {
+            label: "MARKETING, MEDIA & LEGAL",
+            href: "/contact/marketing-media-legal",
+          },
+          { label: "CAREERS", href: "/contact/careers" },
+          { label: "TECHNOLOGY", href: "/contact/technology" },
+        ],
+      },
+    ],
   },
 ];

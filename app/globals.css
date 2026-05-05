@@ -532,3 +532,7 @@ h6 {
 .brand-img {
   padding: 1px;
 }
+
+.bg-primary-dark {
+  background-color: var(--primary-dark);
+}
