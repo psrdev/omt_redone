@@ -10,7 +10,7 @@ export interface Contact {
 export const contacts: Contact[] = [
   {
     id: "1",
-    name: "B2C",
+    name: "Business To Consumer",
     email: "sales@outmazedtravel.com",
     phone: "+971 (0)4 223 5534",
     image: "/images/contact/b2c.jpg",
@@ -18,7 +18,7 @@ export const contacts: Contact[] = [
   },
   {
     id: "2",
-    name: "B2B",
+    name: "Business To Business",
     email: "info@wholesaletourism.com",
     phone: "+971 (0)4 223 5534",
     image: "/images/contact/b2b.jpg",
