@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Header />
       <Hero
-        image="/images/hero/turkey.jpg.webp"
+        image="/images/hero/turkey.jpg"
         title="OutMazed® Tourism – Travel Technology That Powers Global Distribution"
         subtitle="OutMazed® Tourism is a Dubai-based Travel Technology company redefining how travel products are distributed, bundled, and monetized across global markets."
       />
