@@ -57,7 +57,7 @@ const brands = [
     type: "B2B",
     desc: "High-volume travel distribution platform for global travel agents and partners.",
     href: "https://wholesaletourism.com",
-    img: "https://picsum.photos/400/500?random=3",
+    img: "/images/brands/WST.svg",
   },
 
   {
@@ -65,14 +65,14 @@ const brands = [
     type: "Enterprise",
     desc: "Smart corporate travel management solution for seamless business travel.",
     href: "https://globalcorporates.com",
-    img: "https://picsum.photos/400/500?random=4",
+    img: "/images/brands/GC.svg",
   },
   {
     title: "Tech & Stack",
     type: "Technology",
     desc: "Core technology division powering OutMazed’s distribution infrastructure.",
     href: "https://techstack.com",
-    img: "https://picsum.photos/400/500?random=5",
+    img: "/images/brands/TS.svg",
   },
 ];
 
@@ -198,7 +198,10 @@ export default function AboutUs() {
           {/* GRID */}
           <div className="row g-4">
             {brands.map((brand, index) => (
-              <div key={index} className="col-12 col-md-6 col-lg-4">
+              <div
+                key={index}
+                className={`col-12 col-md-6 ${index === 0 || index === 1 ? "col-lg-6" : "col-lg-4"}`}
+              >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

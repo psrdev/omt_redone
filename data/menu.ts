@@ -59,17 +59,17 @@ export const menuData = [
           {
             label: "Wholesale Tourism",
             href: "https://wholesaletourism.com",
-            img: "https://picsum.photos/400/500?random=3",
+            img: "/images/brands/WST.svg",
           },
           {
             label: "The Global Corporates",
             href: "https://globalcorporates.com",
-            img: "https://picsum.photos/400/500?random=4",
+            img: "/images/brands/GC.svg",
           },
           {
             label: "Tech & Stack",
             href: "https://techstack.com",
-            img: "https://picsum.photos/400/500?random=5",
+            img: "/images/brands/TS.svg",
           },
         ],
       },

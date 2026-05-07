@@ -12,6 +12,7 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { TypeAnimation } from "react-type-animation";
 const pillars = [
   {
     title: "Tech Infrastructure",
@@ -41,12 +42,24 @@ export default function Pillars() {
       <div className="container">
         <div className="p-4 p-md-5 bg-white rounded-4">
           {/* HEADER */}
+
           <div className="row align-items-center mb-4">
             <div className="col-md-6">
               <h3 className="fw-bold" style={{ color: "var(--primary)" }}>
-                Technology-Driven
-                <br /> <span>Volume-Focused</span>
-                <br /> Margin-Controlled.
+                <TypeAnimation
+                  sequence={[
+                    " Technology-Driven.",
+                    1000,
+                    "Volume-Focused.",
+                    1000,
+                    "Margin-Controlled.",
+                    1000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                  className="text-4xl font-bold"
+                />
               </h3>
               <p className="text-muted">
                 A travel distribution engine built on scale, precision, and
