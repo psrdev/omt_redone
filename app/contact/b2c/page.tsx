@@ -138,9 +138,8 @@ export default function B2CPage() {
                 <div className="p-4">
                   <h2 className="mb-3">Send us a Message</h2>
                   <p className="text-muted mb-4">
-                    Have a question about our wholesale tourism services? Fill
-                    out the form below and we'll get back to you as soon as
-                    possible.
+                    Have a question about our services? Fill out the form below
+                    and we'll get back to you as soon as possible.
                   </p>
 
                   {submitted && (
