@@ -200,7 +200,7 @@ export default function AboutUs() {
             {brands.map((brand, index) => (
               <div
                 key={index}
-                className={`col-12 col-md-6 ${index === 0 || index === 1 ? "col-lg-6" : "col-lg-4"}`}
+                className={`col-12 col-md-6 clipped-box ${index === 0 || index === 1 ? "col-lg-6" : "col-lg-4"}`}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

@@ -40,7 +40,7 @@ export default function Pillars() {
   return (
     <section className="py-5" style={{ background: "var(--bg-muted)" }}>
       <div className="container">
-        <div className="p-4 p-md-5 bg-white rounded-4">
+        <div className="p-4 p-md-5 bg-white ">
           {/* HEADER */}
 
           <div className="row align-items-center mb-4">
@@ -118,10 +118,9 @@ export default function Pillars() {
             className="engine-quote text-end ms-auto mt-4"
             style={{ maxWidth: "800px" }}
           >
-            <p className="mb-2">"We are not just a travel agency.</p>
-            <p className="mb-2">We are not just a technology provider.</p>
-
             <h5 className="fw-bold mt-3">
+              "We are not just a travel agency.
+              <br /> We are not just a technology provider. <br />
               We are a Travel Distribution Engine built from Dubai for the
               world."
             </h5>

@@ -1,7 +1,7 @@
 .card {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  height: 300px;
   overflow: hidden;
   cursor: pointer;
   background-size: cover;
@@ -63,7 +63,7 @@
   justify-content: center;
   z-index: 3;
   padding: var(--spacing-lg);
-  text-align: center;
+  /* text-align: center; */
 }
 
 .hoverInner {

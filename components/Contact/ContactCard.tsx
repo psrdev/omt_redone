@@ -52,7 +52,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
         animate={{ opacity: isHovered ? 0 : 1 }}
         transition={{ duration: 0.3 }}
       >
-        <p className={`${styles.contactName} fs-1`}>{contact.name}</p>
+        <p className={`${styles.contactName} fs-4`}>{contact.name}</p>
       </motion.div>
 
       <motion.div
@@ -61,20 +61,22 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
         transition={{ duration: 0.3 }}
       >
         <div className={styles.hoverInner}>
-          <h3 className={`${styles.hoveredName} fs-1`}>{contact.name}</h3>
-          <p className={`${styles.email} fs-2`}>{contact.email}</p>
+          <h3 className={`${styles.hoveredName} fs-2`}>{contact.name}</h3>
+          <p className={`${styles.email} fs-4`}>{contact.email}</p>
           {contact.phone && (
-            <p className={`${styles.phone} fs-2`}>{contact.phone}</p>
+            <p className={`${styles.phone} fs-4`}>{contact.phone}</p>
           )}
-          <motion.button
-            className={styles.redirectBtn}
-            onClick={handleRedirect}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label={`Contact ${contact.name}`}
-          >
-            <FontAwesomeIcon icon={faArrowRight} />
-          </motion.button>
+          <div className="d-flex justify-content-end">
+            <motion.button
+              className={styles.redirectBtn}
+              onClick={handleRedirect}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label={`Contact ${contact.name}`}
+            >
+              <FontAwesomeIcon icon={faArrowRight} />
+            </motion.button>
+          </div>
         </div>
       </motion.div>
     </motion.div>
