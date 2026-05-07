@@ -1,0 +1,103 @@
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-image: inherit;
+  z-index: 0;
+  transition: transform var(--transition-medium);
+  transform: translateX(0);
+}
+
+.card:hover::before {
+  transform: translateX(100%);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  transition: background var(--transition-medium);
+}
+
+.card:hover .overlay {
+  background: var(--primary-dark);
+}
+
+.defaultContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.contactName {
+  color: white;
+  font-weight: 600;
+  margin: 0;
+}
+
+.hoverContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.hoverInner {
+  width: 100%;
+}
+
+.hoveredName {
+  color: white;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.email,
+.phone {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: 0.875rem;
+}
+
+.redirectBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-top: var(--spacing-md);
+}
+
+.redirectBtn:hover {
+  background: var(--bg-muted);
+}

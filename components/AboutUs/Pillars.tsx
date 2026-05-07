@@ -69,7 +69,6 @@ export default function Pillars() {
                     style={{
                       width: 48,
                       height: 48,
-                      borderRadius: 12,
                       background: "var(--primary)",
                       color: "#fff",
                     }}
@@ -106,12 +105,12 @@ export default function Pillars() {
             className="engine-quote text-end ms-auto mt-4"
             style={{ maxWidth: "800px" }}
           >
-            <p className="mb-2">We are not just a travel agency.</p>
+            <p className="mb-2">"We are not just a travel agency.</p>
             <p className="mb-2">We are not just a technology provider.</p>
 
             <h5 className="fw-bold mt-3">
               We are a Travel Distribution Engine built from Dubai for the
-              world.
+              world."
             </h5>
           </motion.div>
         </div>

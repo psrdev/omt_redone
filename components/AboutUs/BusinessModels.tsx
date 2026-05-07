@@ -147,6 +147,7 @@ export default function BusinessModels() {
               <Image
                 src={models[active].img}
                 alt={models[active].title}
+                className="clipped-box"
                 width={625}
                 height={459}
                 style={{ maxWidth: "100%", height: "auto" }}

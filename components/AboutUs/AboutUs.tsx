@@ -91,7 +91,7 @@ export default function AboutUs() {
               <Image
                 src="/images/about/skyline.jpg"
                 alt="About Us"
-                className="img-fluid shadow-light"
+                className="img-fluid shadow-light clipped-box"
                 width={320}
                 height={480}
               />
