@@ -51,7 +51,6 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
         className={styles.defaultContent}
         animate={{ opacity: isHovered ? 0 : 1 }}
         transition={{ duration: 0.3 }}
-        pointerEvents={isHovered ? "none" : "auto"}
       >
         <p className={`${styles.contactName} fs-1`}>{contact.name}</p>
       </motion.div>
@@ -60,7 +59,6 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
         className={styles.hoverContent}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        pointerEvents={isHovered ? "auto" : "none"}
       >
         <div className={styles.hoverInner}>
           <h3 className={`${styles.hoveredName} fs-1`}>{contact.name}</h3>
