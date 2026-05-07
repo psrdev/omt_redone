@@ -536,3 +536,140 @@ h6 {
 .bg-primary-dark {
   background-color: var(--primary-dark);
 }
+
+.contactCard {
+  border: none;
+  box-shadow: var(--shadow-light);
+  transition: transform var(--transition-fast);
+}
+
+.contactCard:hover {
+  transform: translateY(-4px);
+}
+
+.contactCard a:hover {
+  color: var(--primary) !important;
+}
+
+.mapContainer {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contact Card Styles */
+.contact-card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-image: inherit;
+  z-index: 0;
+  transition: transform var(--transition-medium);
+  transform: translateX(0);
+}
+
+.contact-card:hover::before {
+  transform: translateX(100%);
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  transition: background var(--transition-medium);
+}
+
+.contact-card:hover .contact-overlay {
+  background: var(--primary-dark);
+}
+
+.contact-default-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.contact-name {
+  color: white;
+  font-weight: 600;
+  margin: 0;
+}
+
+.contact-hover-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  padding: var(--spacing-lg);
+}
+
+.contact-hover-inner {
+  width: 100%;
+}
+
+.contact-hovered-name {
+  color: white;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.contact-email,
+.contact-phone {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: 0.875rem;
+}
+
+.contact-redirect-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-top: var(--spacing-md);
+}
+
+.contact-redirect-btn:hover {
+  background: var(--bg-muted);
+}

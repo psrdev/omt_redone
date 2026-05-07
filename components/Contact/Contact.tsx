@@ -2,13 +2,12 @@
 
 import { contacts } from "@/data/contacts";
 import { ContactCard } from "./ContactCard";
-import styles from "./contact.module.css";
 
 export const ContactSection: React.FC = () => {
   return (
-    <section className={styles.contactSection}>
+    <section>
       <div className="container">
-        <div className={styles.grid}>
+        <div className="contactGrid">
           {contacts.map((contact) => (
             <ContactCard key={contact.id} contact={contact} />
           ))}

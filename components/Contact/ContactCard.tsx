@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import type { Contact } from "@/data/contacts";
-import styles from "./contact-card.module.css";
 
 interface ContactCardProps {
   contact: Contact;
@@ -33,7 +32,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
 
   return (
     <motion.div
-      className={styles.card}
+      className="contact-card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       initial={{ opacity: 0 }}
@@ -45,30 +44,30 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
         backgroundPosition: "center",
       }}
     >
-      <div className={styles.overlay} />
+      <div className="contact-overlay" />
 
       <motion.div
-        className={styles.defaultContent}
+        className="contact-default-content"
         animate={{ opacity: isHovered ? 0 : 1 }}
         transition={{ duration: 0.3 }}
       >
-        <p className={`${styles.contactName} fs-4`}>{contact.name}</p>
+        <p className="contact-name fs-4">{contact.name}</p>
       </motion.div>
 
       <motion.div
-        className={styles.hoverContent}
+        className="contact-hover-content"
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className={styles.hoverInner}>
-          <h3 className={`${styles.hoveredName} fs-2`}>{contact.name}</h3>
-          <p className={`${styles.email} fs-4`}>{contact.email}</p>
+        <div className="contact-hover-inner">
+          <h3 className="contact-hovered-name fs-2">{contact.name}</h3>
+          <p className="contact-email fs-4">{contact.email}</p>
           {contact.phone && (
-            <p className={`${styles.phone} fs-4`}>{contact.phone}</p>
+            <p className="contact-phone fs-4">{contact.phone}</p>
           )}
           <div className="d-flex justify-content-end">
             <motion.button
-              className={styles.redirectBtn}
+              className="contact-redirect-btn"
               onClick={handleRedirect}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}

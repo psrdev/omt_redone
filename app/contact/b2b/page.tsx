@@ -16,8 +16,6 @@ import {
   faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./b2b.module.css";
-
 export default function B2BPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -72,9 +70,7 @@ export default function B2BPage() {
 
                   {/* Contact Cards */}
                   <div className="mb-4">
-                    <div
-                      className={`card text-start h-100 mb-3 ${styles.card}`}
-                    >
+                    <div className={`card text-start h-100 mb-3 contactCard`}>
                       <div className="card-body">
                         <h3 className="text-primary mb-2">
                           <FontAwesomeIcon icon={faGlobe} className="me-2" />
@@ -91,9 +87,7 @@ export default function B2BPage() {
                       </div>
                     </div>
 
-                    <div
-                      className={`card text-start h-100 mb-3 ${styles.card}`}
-                    >
+                    <div className={`card text-start h-100 mb-3 contactCard`}>
                       <div className="card-body">
                         <h3 className="text-primary mb-2">
                           <FontAwesomeIcon icon={faPhone} className="me-2" />
@@ -108,7 +102,7 @@ export default function B2BPage() {
                       </div>
                     </div>
 
-                    <div className={`card text-start h-100 ${styles.card}`}>
+                    <div className={`card text-start h-100 contactCard`}>
                       <div className="card-body">
                         <h3 className="text-primary mb-2">
                           <FontAwesomeIcon icon={faEnvelope} className="me-2" />
@@ -125,7 +119,7 @@ export default function B2BPage() {
                   </div>
 
                   {/* Map */}
-                  <div className={styles.mapContainer}>
+                  <div className="mapContainer">
                     <iframe
                       width="100%"
                       height="400"
