@@ -57,6 +57,7 @@ export default function B2BPage() {
           image="/images/hero/contact-us.jpg"
           title="Wholesale Tourism "
           subtitle="Contact us"
+          height="30vh"
         />
 
         {/* Contact Information and Form Section */}
@@ -65,7 +66,7 @@ export default function B2BPage() {
             <div className="row g-5">
               {/* Left Column - Contact Info and Map */}
               <div className="col-lg-6">
-                <div className=" p-4 ">
+                <div className=" ">
                   <h2 className="mb-4">Get in Touch</h2>
 
                   {/* Contact Cards */}
@@ -135,7 +136,7 @@ export default function B2BPage() {
 
               {/* Right Column - Contact Form */}
               <div className="col-lg-6">
-                <div className="p-4">
+                <div className="">
                   <h2 className="mb-3">Send us a Message</h2>
                   <p className="text-muted mb-4">
                     Have a question about our wholesale tourism services? Fill

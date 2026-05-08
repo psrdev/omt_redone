@@ -10,6 +10,7 @@ export default function ContactPage() {
         image="/images/hero/contact-us.jpg"
         title="Contact Us"
         subtitle="Get in touch with us"
+        height="30vh"
       />
       <ContactSection />
       <Footer />

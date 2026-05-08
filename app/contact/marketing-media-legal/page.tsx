@@ -57,6 +57,7 @@ export default function MarketingPage() {
           image="/images/hero/contact-us.jpg"
           title="Marketing, Media & Legal"
           subtitle="Contact us"
+          height="30vh"
         />
 
         {/* Contact Information and Form Section */}

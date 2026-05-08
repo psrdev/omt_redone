@@ -74,6 +74,7 @@ export default function CareersPage() {
           image="/images/hero/contact-us.jpg"
           title="Careers "
           subtitle="Join our team"
+          height="30vh"
         />
 
         {/* Contact Information and Form Section */}

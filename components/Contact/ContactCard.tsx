@@ -65,7 +65,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
           {contact.phone && (
             <p className="contact-phone fs-4">{contact.phone}</p>
           )}
-          <div className="d-flex justify-content-end">
+          <div className="contact-btn-wrapper">
             <motion.button
               className="contact-redirect-btn"
               onClick={handleRedirect}

@@ -63,6 +63,7 @@ export default function CorporatePage() {
           image="/images/hero/contact-us.jpg"
           title="Corporate"
           subtitle="Contact us"
+          height="30vh"
         />
 
         {/* Contact Information and Form Section */}

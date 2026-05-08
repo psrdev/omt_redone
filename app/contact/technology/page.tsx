@@ -57,6 +57,7 @@ export default function TechnologyPage() {
           image="/images/hero/contact-us.jpg"
           title="Technology"
           subtitle="Contact us"
+          height="30vh"
         />
 
         {/* Contact Information and Form Section */}

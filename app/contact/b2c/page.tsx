@@ -56,6 +56,7 @@ export default function B2CPage() {
           image="/images/hero/contact-us.jpg"
           title="Outmazed Travel "
           subtitle="Contact us"
+          height="30vh"
         />
 
         {/* Contact Information and Form Section */}

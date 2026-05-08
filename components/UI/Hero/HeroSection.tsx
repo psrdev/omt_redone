@@ -8,6 +8,7 @@ type HeroProps = {
   eyebrow?: string;
   title: string;
   subtitle?: string;
+  height?: string;
 };
 
 export default function HeroSection({
@@ -15,9 +16,13 @@ export default function HeroSection({
   eyebrow,
   title,
   subtitle,
+  height = "85vh",
 }: HeroProps) {
   return (
-    <section className="hero position-relative d-flex align-items-end overflow-hidden">
+    <section
+      className="hero position-relative d-flex align-items-end overflow-hidden"
+      style={{ height }}
+    >
       {/* Background Image */}
       <div className="bg" style={{ backgroundImage: `url(${image})` }} />
 
