@@ -20,7 +20,6 @@ export default function B2CPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
     phone: "",
     message: "",
   });
@@ -42,7 +41,7 @@ export default function B2CPage() {
     console.log("Form submitted:", formData);
     setSubmitted(true);
     setTimeout(() => {
-      setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "" });
       setSubmitted(false);
     }, 3000);
   };
@@ -205,22 +204,6 @@ export default function B2CPage() {
                           />
                         </div>
                       </div>
-                    </div>
-
-                    <div className="mb-3">
-                      <label htmlFor="company" className="form-label">
-                        {/* <FontAwesomeIcon icon={faBriefcase} className="me-2" /> */}
-                        Company Name
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your company name"
-                      />
                     </div>
 
                     <div className="mb-3">
