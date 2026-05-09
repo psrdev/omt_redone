@@ -355,7 +355,7 @@ h6 {
   background-color: var(--primary);
   color: var(--bg-white);
   padding: 0.25rem 0.75rem;
-  border-radius: var(--border-radius);
+
   font-size: 0.875rem;
 }
 .leaderCard {

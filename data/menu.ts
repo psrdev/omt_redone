@@ -40,8 +40,8 @@ export const menuData = [
   {
     label: "Our Brands",
     mega: true,
-    type: "hover-image", // new type
-    img: "/images/brands/OMT.svg", // <-- default image
+    type: "hover-image",
+    img: "/images/brands/OMT.svg",
     sections: [
       {
         title: "Brands",
