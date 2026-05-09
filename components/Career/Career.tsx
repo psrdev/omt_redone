@@ -17,6 +17,7 @@ import {
   faPaperPlane,
   faFileArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
+import Modal from "../UI/Modal/Modal";
 
 interface Job {
   id: number;
@@ -33,7 +34,7 @@ const jobs: Job[] = [
     id: 1,
     title: "Senior Software Engineer",
     department: "Engineering",
-    location: "San Francisco, CA",
+    location: "Dubai, UAE",
     type: "Full-time",
     description:
       "Build scalable systems and lead technical initiatives in a fast-paced environment.",
@@ -67,7 +68,7 @@ const jobs: Job[] = [
     id: 3,
     title: "Marketing Manager",
     department: "Marketing",
-    location: "New York, NY",
+    location: "Dubai, UAE",
     type: "Full-time",
     description: "Drive growth strategies and build brand awareness.",
 
@@ -198,147 +199,127 @@ export default function Career() {
       </div>
 
       {/* MODAL */}
+      <Modal isOpen={!!selectedJob} onClose={() => setSelectedJob(null)}>
+        {selectedJob && (
+          <>
+            <div className={styles.modalTop}>
+              <div className={styles.departmentBadge}>
+                {selectedJob.department}
+              </div>
 
-      <div
-        className={`${styles.modalOverlay} ${selectedJob ? styles.active : ""}`}
-        onClick={() => setSelectedJob(null)}
-      >
-        <div
-          className={`${styles.modalBox} ${selectedJob ? styles.active : ""}`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button
-            className={styles.closeBtn}
-            onClick={() => setSelectedJob(null)}
-          >
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
-          {selectedJob && (
-            <>
-              <div className={styles.modalTop}>
-                <div className={styles.departmentBadge}>
-                  {selectedJob.department}
-                </div>
+              <div className={styles.modalTitleWrap}>
+                <FontAwesomeIcon
+                  icon={faBriefcase}
+                  className={styles.modalTitleIcon}
+                />
 
-                <div className={styles.modalTitleWrap}>
+                <h2 className={styles.modalTitle}>{selectedJob.title}</h2>
+              </div>
+
+              <div className="d-flex flex-wrap gap-3 mt-4">
+                <div className={styles.jobMeta}>
                   <FontAwesomeIcon
-                    icon={faBriefcase}
-                    className={styles.modalTitleIcon}
+                    icon={faLocationDot}
+                    className={styles.metaIcon}
                   />
 
-                  <h2 className={styles.modalTitle}>{selectedJob.title}</h2>
+                  <span>{selectedJob.location}</span>
                 </div>
 
-                <div className="d-flex flex-wrap gap-3 mt-4">
-                  <div className={styles.jobMeta}>
-                    <FontAwesomeIcon
-                      icon={faLocationDot}
-                      className={styles.metaIcon}
-                    />
+                <div className={styles.jobMeta}>
+                  <FontAwesomeIcon icon={faClock} className={styles.metaIcon} />
 
-                    <span>{selectedJob.location}</span>
-                  </div>
-
-                  <div className={styles.jobMeta}>
-                    <FontAwesomeIcon
-                      icon={faClock}
-                      className={styles.metaIcon}
-                    />
-
-                    <span>{selectedJob.type}</span>
-                  </div>
+                  <span>{selectedJob.type}</span>
                 </div>
               </div>
+            </div>
 
-              <p className={styles.modalDescription}>
-                {selectedJob.description}
-              </p>
+            <p className={styles.modalDescription}>{selectedJob.description}</p>
 
-              <div className={styles.modalSection}>
-                <h4>Responsibilities</h4>
+            <div className={styles.modalSection}>
+              <h4>Responsibilities</h4>
 
-                <ul>
-                  {selectedJob.responsibilities.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+              <ul>
+                {selectedJob.responsibilities.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* APPLY FORM */}
+
+            <div className={styles.applyBox}>
+              <div className={styles.applyTitleWrap}>
+                <FontAwesomeIcon
+                  icon={faUserTie}
+                  className={styles.applyIcon}
+                />
+
+                <h4 className={styles.applyTitle}>Apply for this role</h4>
               </div>
 
-              {/* APPLY FORM */}
-
-              <div className={styles.applyBox}>
-                <div className={styles.applyTitleWrap}>
-                  <FontAwesomeIcon
-                    icon={faUserTie}
-                    className={styles.applyIcon}
+              <div className="row g-3">
+                <div className="col-md-6">
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className={styles.input}
                   />
-
-                  <h4 className={styles.applyTitle}>Apply for this role</h4>
                 </div>
 
-                <div className="row g-3">
-                  <div className="col-md-6">
-                    <input
-                      type="text"
-                      placeholder="Full Name"
-                      className={styles.input}
+                <div className="col-md-6">
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className={styles.input}
+                  />
+                </div>
+
+                <div className="col-12">
+                  <input
+                    type="text"
+                    placeholder="Portfolio / LinkedIn"
+                    className={styles.input}
+                  />
+                </div>
+
+                <div className="col-12">
+                  <label className={styles.uploadBox}>
+                    <input type="file" className={styles.fileInput} />
+
+                    <FontAwesomeIcon
+                      icon={faFileArrowUp}
+                      className={styles.uploadIcon}
                     />
-                  </div>
 
-                  <div className="col-md-6">
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      className={styles.input}
-                    />
-                  </div>
+                    <div>
+                      <h5>Upload Resume / CV</h5>
 
-                  <div className="col-12">
-                    <input
-                      type="text"
-                      placeholder="Portfolio / LinkedIn"
-                      className={styles.input}
-                    />
-                  </div>
+                      <p>PDF, DOC, DOCX (Max 10MB)</p>
+                    </div>
+                  </label>
+                </div>
 
-                  <div className="col-12">
-                    <label className={styles.uploadBox}>
-                      <input type="file" className={styles.fileInput} />
+                <div className="col-12">
+                  <textarea
+                    rows={5}
+                    placeholder="Tell us about yourself"
+                    className={styles.textarea}
+                  ></textarea>
+                </div>
 
-                      <FontAwesomeIcon
-                        icon={faFileArrowUp}
-                        className={styles.uploadIcon}
-                      />
+                <div className="col-12">
+                  <button className={styles.applyBtn}>
+                    <FontAwesomeIcon icon={faPaperPlane} />
 
-                      <div>
-                        <h5>Upload Resume / CV</h5>
-
-                        <p>PDF, DOC, DOCX (Max 10MB)</p>
-                      </div>
-                    </label>
-                  </div>
-
-                  <div className="col-12">
-                    <textarea
-                      rows={5}
-                      placeholder="Tell us about yourself"
-                      className={styles.textarea}
-                    ></textarea>
-                  </div>
-
-                  <div className="col-12">
-                    <button className={styles.applyBtn}>
-                      <FontAwesomeIcon icon={faPaperPlane} />
-
-                      <span>Submit Application</span>
-                    </button>
-                  </div>
+                    <span>Submit Application</span>
+                  </button>
                 </div>
               </div>
-            </>
-          )}
-        </div>
-      </div>
+            </div>
+          </>
+        )}
+      </Modal>
     </>
   );
 }
