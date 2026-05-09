@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./career.module.css";
+import { motion } from "framer-motion";
+import { fadeUp, stagger, VIEWPORT } from "@/utils/motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -88,14 +90,22 @@ export default function Career() {
 
         <section className={styles.heroSection}>
           <div className="container">
-            <div className={styles.heroInner}>
-              <h1 className={styles.heroTitle}>Build Your Career With Us</h1>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+              className={styles.heroInner}
+            >
+              <motion.h1 variants={fadeUp} className={styles.heroTitle}>
+                Build Your Career With Us
+              </motion.h1>
 
-              <p className={styles.heroText}>
+              <motion.p variants={fadeUp} className={styles.heroText}>
                 Join a team of innovators shaping the future. We're looking for
                 talented individuals ready to make an impact.
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
@@ -103,58 +113,67 @@ export default function Career() {
 
         <section className={styles.jobsSection}>
           <div className="container">
-            <h2 className={styles.sectionTitle}>Open Positions</h2>
-
-            <div className="d-flex flex-column gap-4">
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+              className="d-flex flex-column gap-4"
+            >
+              <motion.h2 variants={fadeUp} className={styles.sectionTitle}>
+                Open Positions
+              </motion.h2>
               {jobs.map((job) => (
-                <div
-                  key={job.id}
-                  className={styles.jobCard}
-                  onClick={() => setSelectedJob(job)}
-                >
-                  <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-3">
-                    <div>
-                      <h3 className={styles.jobTitle}>{job.title}</h3>
+                <motion.div variants={fadeUp}>
+                  <div
+                    key={job.id}
+                    className={styles.jobCard}
+                    onClick={() => setSelectedJob(job)}
+                  >
+                    <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-3">
+                      <div>
+                        <h3 className={styles.jobTitle}>{job.title}</h3>
 
-                      <div className={styles.departmentBadge}>
-                        {job.department}
+                        <div className={styles.departmentBadge}>
+                          {job.department}
+                        </div>
+                      </div>
+
+                      <div className={styles.viewBtn}>
+                        <span>View Role</span>
+
+                        <FontAwesomeIcon
+                          icon={faArrowRight}
+                          className={styles.arrowIcon}
+                        />
                       </div>
                     </div>
 
-                    <div className={styles.viewBtn}>
-                      <span>View Role</span>
+                    <p className={styles.jobDescription}>{job.description}</p>
 
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className={styles.arrowIcon}
-                      />
+                    <div className="d-flex flex-wrap gap-4">
+                      <div className={styles.jobMeta}>
+                        <FontAwesomeIcon
+                          icon={faLocationDot}
+                          className={styles.metaIcon}
+                        />
+
+                        <span>{job.location}</span>
+                      </div>
+
+                      <div className={styles.jobMeta}>
+                        <FontAwesomeIcon
+                          icon={faClock}
+                          className={styles.metaIcon}
+                        />
+
+                        <span>{job.type}</span>
+                      </div>
                     </div>
                   </div>
-
-                  <p className={styles.jobDescription}>{job.description}</p>
-
-                  <div className="d-flex flex-wrap gap-4">
-                    <div className={styles.jobMeta}>
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className={styles.metaIcon}
-                      />
-
-                      <span>{job.location}</span>
-                    </div>
-
-                    <div className={styles.jobMeta}>
-                      <FontAwesomeIcon
-                        icon={faClock}
-                        className={styles.metaIcon}
-                      />
-
-                      <span>{job.type}</span>
-                    </div>
-                  </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -162,7 +181,7 @@ export default function Career() {
 
         <section className={styles.ctaSection}>
           <div className="container">
-            <div className={styles.ctaInner}>
+            <motion.div variants={fadeUp} className={styles.ctaInner}>
               <h2 className={styles.ctaTitle}>Don't See Your Role?</h2>
 
               <p className={styles.ctaText}>
@@ -170,10 +189,10 @@ export default function Career() {
                 us your resume and let us know how you can contribute.
               </p>
 
-              <button className={styles.ctaButton}>
+              <a href="/contact/careers" className={styles.ctaButton}>
                 Send General Application
-              </button>
-            </div>
+              </a>
+            </motion.div>
           </div>
         </section>
       </div>
@@ -188,15 +207,14 @@ export default function Career() {
           className={`${styles.modalBox} ${selectedJob ? styles.active : ""}`}
           onClick={(e) => e.stopPropagation()}
         >
+          <button
+            className={styles.closeBtn}
+            onClick={() => setSelectedJob(null)}
+          >
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
           {selectedJob && (
             <>
-              <button
-                className={styles.closeBtn}
-                onClick={() => setSelectedJob(null)}
-              >
-                <FontAwesomeIcon icon={faXmark} />
-              </button>
-
               <div className={styles.modalTop}>
                 <div className={styles.departmentBadge}>
                   {selectedJob.department}

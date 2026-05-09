@@ -184,6 +184,7 @@
   font-weight: 600;
 
   transition: all 0.25s ease;
+  text-decoration: none;
 }
 
 .ctaButton:hover {

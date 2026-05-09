@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import LeaderCard from "./LeaderCard";
+import { motion } from "framer-motion";
 import {
   fadeUp,
   stagger,
@@ -164,7 +164,6 @@ export default function Leadership() {
               content={[
                 "Berna Korkmaz is a seasoned tourism and hospitality commercial leader with over 20 years of experience in global B2B and B2C sourcing and distribution. She has played instrumental roles in scaling international travel businesses, including being part of the founding success of Lots of Hotels (now WebBeds) and contributing to the growth of TDS Travel and Miki Travel across new regions.",
                 "At OutMazed® Tourism, Berna leads Global Commercial Strategy and API Connectivity, driving supplier partnerships, expanding distribution networks, and strengthening global contracting frameworks.",
-               
               ]}
             />
 
