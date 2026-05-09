@@ -16,7 +16,17 @@ import {
   faFileArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 
-const jobs = [
+interface Job {
+  id: number;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  description: string;
+  responsibilities: string[];
+}
+
+const jobs: Job[] = [
   {
     id: 1,
     title: "Senior Software Engineer",
@@ -69,7 +79,7 @@ const jobs = [
 ];
 
 export default function Career() {
-  const [selectedJob, setSelectedJob] = useState(null);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
   return (
     <>
@@ -292,7 +302,7 @@ export default function Career() {
 
                   <div className="col-12">
                     <textarea
-                      rows="5"
+                      rows={5}
                       placeholder="Tell us about yourself"
                       className={styles.textarea}
                     ></textarea>
