@@ -7,11 +7,20 @@
 /* HERO */
 
 .heroSection {
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     var(--primary) 0%,
     var(--primary-dark) 100%
-  );
+  ); */
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--primary) 20%, transparent),
+      color-mix(in srgb, var(--primary-dark) 70%, transparent)
+    ),
+    url("/images/career/office.jpg");
+  background-size: cover;
+  background-position: center;
 
   padding: 120px 0;
 
