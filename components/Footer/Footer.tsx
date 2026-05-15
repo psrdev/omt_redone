@@ -75,17 +75,17 @@ export default function Footer() {
             <p className="fs-6 text-uppercase text-white mb-2 fw-bold  d-flex">
               Contact
             </p>
-            <p className="text-light">
+            <a href="tel:+971503431800" className="text-light d-block mb-2 text-decoration-none">
               <i
                 className="fa-solid fa-phone me-2"
                 style={{ fontSize: "14px" }}
               ></i>{" "}
               +971 50 343 1800
-            </p>
-            <p className="text-light">
+            </a>
+            <a href="mailto:info@outmazedtourism.com" className="text-light d-block text-decoration-none">
               <i className="fa-solid fa-envelope me-2"></i>{" "}
               info@outmazedtourism.com
-            </p>
+            </a>
           </div>
           <div className="col-md-3 col-sm-6 mb-4 mb-md-0">
             <p className="fs-6 text-uppercase text-white mb-2 fw-bold  d-flex">
