@@ -37,6 +37,73 @@
   line-height: 1.7;
 }
 
+/* DNA SECTION */
+
+.dnaSection {
+  background: var(--bg-white);
+}
+
+.dnaHeading {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.dnaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  margin-top: 3rem;
+}
+
+.dnaCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: var(--bg-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background-image: linear-gradient(
+    -45deg,
+    var(--bg-muted) 0%,
+    var(--bg-muted) 85%,
+    color-mix(in srgb, var(--primary) 8%, transparent) 85%,
+    color-mix(in srgb, var(--primary) 8%, transparent) 100%
+  );
+}
+
+.dnaCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.dnaIcon {
+  font-size: 3.5rem;
+  margin-bottom: 24px;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dnaCardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.dnaCardText {
+  color: var(--text-medium);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
 /* JOBS */
 
 .jobsSection {
@@ -403,6 +470,24 @@
 
   .sectionTitle {
     font-size: 2rem;
+  }
+
+  .dnaHeading {
+    font-size: 2rem;
+  }
+
+  .dnaGrid {
+    gap: 20px;
+  }
+
+  .dnaCard {
+    padding: 24px 16px;
+  }
+
+  .dnaIcon {
+    font-size: 2.5rem;
+    height: 60px;
+    width: 60px;
   }
 
   .modalBox {

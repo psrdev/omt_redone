@@ -16,6 +16,10 @@ import {
   faUserTie,
   faPaperPlane,
   faFileArrowUp,
+  faRocket,
+  faLightbulb,
+  faWrench,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../UI/Modal/Modal";
 
@@ -106,6 +110,108 @@ export default function Career() {
                 Join a team of innovators shaping the future. We're looking for
                 talented individuals ready to make an impact.
               </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* DNA */}
+
+        <section className={styles.dnaSection}>
+          <div className="container">
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              <motion.div variants={fadeUp} style={{ textAlign: "center" }}>
+                <div className={styles.departmentBadge}>The OutMazed DNA</div>
+              </motion.div>
+
+              <motion.h2 variants={fadeUp} className={styles.dnaHeading}>
+                Our Cultural Commitments
+              </motion.h2>
+
+              <motion.div
+                className={styles.dnaGrid}
+                variants={stagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={VIEWPORT}
+              >
+                <motion.div variants={fadeUp} className={styles.dnaCard}>
+                  <div className={styles.dnaIcon}>
+                    <FontAwesomeIcon
+                      icon={faRocket}
+                      style={{ color: "var(--primary)" }}
+                    />
+                  </div>
+                  <h3 className={styles.dnaCardTitle}>
+                    Solve for the Traveler
+                  </h3>
+                  <p className={styles.dnaCardText}>
+                    We're here to create exceptional travel experiences by
+                    delivering real value for every traveler. Because we don't
+                    just plan trips—we build trust, inspire unforgettable
+                    journeys, and create a travel company people return to again
+                    and again.
+                  </p>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className={styles.dnaCard}>
+                  <div className={styles.dnaIcon}>
+                    <FontAwesomeIcon
+                      icon={faLightbulb}
+                      style={{ color: "var(--primary)" }}
+                    />
+                  </div>
+                  <h3 className={styles.dnaCardTitle}>
+                    Be Bold. Explore Further.
+                  </h3>
+                  <p className={styles.dnaCardText}>
+                    We choose adventure over routine. We embrace new ideas, move
+                    with curiosity, learn from every experience, and see every
+                    journey as an opportunity to grow—both for our travelers and
+                    ourselves.
+                  </p>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className={styles.dnaCard}>
+                  <div className={styles.dnaIcon}>
+                    <FontAwesomeIcon
+                      icon={faWrench}
+                      style={{ color: "var(--primary)" }}
+                    />
+                  </div>
+                  <h3 className={styles.dnaCardTitle}>
+                    Align, Adapt & Journey Forward
+                  </h3>
+                  <p className={styles.dnaCardText}>
+                    Travel moves fast, and so do we. We stay aligned on what
+                    matters most, adapt to every new destination and challenge,
+                    and take action to create seamless experiences without
+                    waiting for perfect conditions.
+                  </p>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className={styles.dnaCard}>
+                  <div className={styles.dnaIcon}>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      style={{ color: "var(--primary)" }}
+                    />
+                  </div>
+                  <h3 className={styles.dnaCardTitle}>
+                    Deliver Every Journey with HEART
+                  </h3>
+                  <p className={styles.dnaCardText}>
+                    We make every experience better—for our travelers and for
+                    each other. We lead with humility, empathy, adaptability,
+                    care, and transparency to create journeys people truly
+                    remember.
+                  </p>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
