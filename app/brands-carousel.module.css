@@ -38,7 +38,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 1rem));
+    transform: translateX(calc(-66.666% - 1.333rem));
   }
 }
 

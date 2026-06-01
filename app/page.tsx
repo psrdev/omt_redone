@@ -153,7 +153,7 @@ export default function Home() {
         <div className="container-fluid">
           <div className={styles.carouselWrapper}>
             <div className={styles.carouselTrack}>
-              {[...brands, ...brands].map((brand, index) => (
+              {[...brands, ...brands, ...brands].map((brand, index) => (
                 <motion.a
                   key={index}
                   href={brand.href}
