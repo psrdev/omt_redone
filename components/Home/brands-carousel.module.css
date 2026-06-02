@@ -1,8 +1,9 @@
 .brandsCarousel {
-  padding: 3rem 0;
+  padding: 2rem 0;
 
   overflow: hidden;
   position: relative;
+  border-top: 3px solid var(--primary);
 }
 
 .carouselWrapper {

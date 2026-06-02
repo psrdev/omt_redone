@@ -43,6 +43,18 @@ export default function BrandsMarquee() {
   ];
   return (
     <section className={styles.brandsCarousel} id="brands">
+      <div className="container">
+        {" "}
+        <h2 className="text-center mb-2 text-primary fw-bold">
+          Your Journey, Our Expertise
+        </h2>
+        <p className="text-center mb-5 text-muted col-lg-7 mx-auto">
+          No matter where you're headed, OutMazed Tourism connects you with
+          exceptional travel experiences, personalized services, and trusted
+          solutions that turn every trip into an unforgettable adventure.
+        </p>{" "}
+      </div>
+
       <div className="container-fluid">
         <div className={styles.carouselWrapper}>
           <div className={styles.carouselTrack}>

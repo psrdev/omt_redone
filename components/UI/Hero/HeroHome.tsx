@@ -146,7 +146,7 @@ export default function HeroHome() {
               viewport={VIEWPORT}
             >
               <img
-                src="https://picsum.photos/seed/dubai-tower/600/900"
+                src="https://images.pexels.com/photos/9943043/pexels-photo-9943043.jpeg"
                 alt="Dubai"
               />
             </motion.div>
@@ -160,7 +160,7 @@ export default function HeroHome() {
               viewport={VIEWPORT}
             >
               <img
-                src="https://picsum.photos/seed/maldives-water/600/440"
+                src="https://images.pexels.com/photos/2664046/pexels-photo-2664046.jpeg"
                 alt="Maldives"
               />
             </motion.div>
@@ -174,7 +174,7 @@ export default function HeroHome() {
               viewport={VIEWPORT}
             >
               <img
-                src="https://picsum.photos/seed/santorini-white/600/440"
+                src="https://images.pexels.com/photos/3243090/pexels-photo-3243090.jpeg"
                 alt="Santorini"
               />
             </motion.div>
