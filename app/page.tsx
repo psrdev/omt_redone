@@ -1,7 +1,7 @@
 "use client";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/UI/Header/Header";
-import Hero from "@/components/UI/Hero/HeroSection";
+import HeroHome from "@/components/UI/Hero/HeroHome";
 import { motion } from "framer-motion";
 import { fadeUp, stagger, VIEWPORT, imageReveal } from "@/utils/motion";
 import Image from "next/image";
@@ -49,12 +49,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Hero
-        image="/images/hero/turkey.jpg"
-        title="OutMazed Tourism LLC"
-        subtitle="OutMazed Tourism LLC is a UAE-based tourism company dedicated to creating exceptional travel experiences and delivering comprehensive travel-related services to customers across the region and beyond. Headquartered in the United Arab Emirates, the company was founded with a vision to redefine the travel industry through innovation, reliability, and a customer-first approach."
-      />
-      <section className="py-5">
+      <HeroHome />
+
+      <section className="py-2">
         <div className="container">
           <div className="row justify-content-center align-items-center g-4">
             <motion.div
@@ -149,7 +146,7 @@ export default function Home() {
       </section>
 
       {/* Brands Carousel Section */}
-      <section className={styles.brandsCarousel}>
+      <section className={styles.brandsCarousel} id="brands">
         <div className="container-fluid">
           <div className={styles.carouselWrapper}>
             <div className={styles.carouselTrack}>
