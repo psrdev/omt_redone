@@ -1,6 +1,6 @@
 .brandsCarousel {
   padding: 3rem 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+
   overflow: hidden;
   position: relative;
 }
@@ -29,7 +29,7 @@
 .carouselTrack {
   display: flex;
   gap: 2rem;
-  animation: scroll 70s linear infinite;
+  animation: scroll 21s linear infinite;
   will-change: transform;
 }
 
@@ -44,28 +44,21 @@
 
 .brandCard {
   flex: 0 0 auto;
-  width: 200px;
+
   background: white;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 2.5rem;
   min-height: 220px;
+  min-width: 234px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   color: inherit;
-}
-
-.brandCard:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  transform: translateY(-8px);
-}
-
-.brandCard:active {
-  transform: scale(0.98);
+  border: 1px solid #caccd2;
 }
 
 .brandImage {

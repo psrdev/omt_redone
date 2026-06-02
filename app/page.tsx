@@ -2,48 +2,10 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/UI/Header/Header";
 import HeroHome from "@/components/UI/Hero/HeroHome";
+import BrandsMarquee from "@/components/Home/BrandsMarquee";
 import { motion } from "framer-motion";
-import { fadeUp, stagger, VIEWPORT, imageReveal } from "@/utils/motion";
 import Image from "next/image";
-import styles from "./brands-carousel.module.css";
-const brands = [
-  {
-    title: "OutMazed Travel",
-    type: "B2C",
-    desc: "Consumer travel distribution channel delivering curated travel experiences.",
-    href: "https://outmazed.com",
-    img: "/images/brands/OT.svg",
-  },
-  {
-    title: "Global Visa Shop",
-    type: "B2C",
-    desc: "One-stop global visa platform including UAE tourist visa solutions.",
-    href: "https://globalvisashop.com",
-    img: "/images/brands/GVS.svg",
-  },
-  {
-    title: "Wholesale Tourism",
-    type: "B2B",
-    desc: "High-volume travel distribution platform for global travel agents and partners.",
-    href: "https://wholesaletourism.com",
-    img: "/images/brands/WST.svg",
-  },
-
-  {
-    title: "The Global Corporates",
-    type: "Enterprise",
-    desc: "Smart corporate travel management solution for seamless business travel.",
-    href: "https://globalcorporates.com",
-    img: "/images/brands/GC.svg",
-  },
-  {
-    title: "Tech & Stack",
-    type: "Technology",
-    desc: "Core technology division powering OutMazed’s distribution infrastructure.",
-    href: "https://techandstack.com",
-    img: "/images/brands/TS.svg",
-  },
-];
+import { fadeUp, stagger, VIEWPORT, imageReveal } from "@/utils/motion";
 
 export default function Home() {
   return (
@@ -144,37 +106,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Brands Carousel Section */}
-      <section className={styles.brandsCarousel} id="brands">
-        <div className="container-fluid">
-          <div className={styles.carouselWrapper}>
-            <div className={styles.carouselTrack}>
-              {[...brands, ...brands, ...brands].map((brand, index) => (
-                <motion.a
-                  key={index}
-                  href={brand.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.brandCard}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <div className={styles.brandImage}>
-                    <Image
-                      src={brand.img}
-                      alt={brand.title}
-                      width={300}
-                      height={170}
-                    />
-                  </div>
-                  {/* <h5 className={styles.brandTitle}>{brand.title}</h5> */}
-                </motion.a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <BrandsMarquee />
+      <section className="py-5 min-vh-50"> </section>
 
       <Footer />
     </>
