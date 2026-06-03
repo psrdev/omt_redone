@@ -9,6 +9,9 @@ import { fadeUp, stagger, VIEWPORT, imageReveal } from "@/utils/motion";
 import MeaningSection from "@/components/Home/MeaningSection";
 import EcosystemSection from "@/components/Home/EcosystemSection";
 import TravelEcosystemSection from "@/components/Home/TravelEcosystemSection";
+import BuiltForModernTravel from "@/components/Home/BuiltForModernTravel";
+import StatsSection from "@/components/Home/StatsSection";
+import CommitmentSection from "@/components/Home/CommitmentSection";
 
 export default function Home() {
   return (
@@ -17,7 +20,10 @@ export default function Home() {
       <HeroHome />
       <MeaningSection />
       <EcosystemSection />
-      {/* <TravelEcosystemSection /> */}
+      <TravelEcosystemSection />
+      <BuiltForModernTravel />
+      {/* <CommitmentSection /> */}
+      {/* <StatsSection /> */}
 
       {/* <section className="py-2">
         <div className="container">

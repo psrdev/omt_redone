@@ -3,7 +3,7 @@ export const EASE: Easing = [0.16, 1, 0.3, 1];
 
 export const VIEWPORT = {
   once: true,
-  margin: "-120px",
+  margin: "-150px",
 };
 
 export const fadeUp: Variants = {

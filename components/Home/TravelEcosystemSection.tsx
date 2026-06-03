@@ -1,13 +1,7 @@
-import Image from "next/image";
 import styles from "./TravelEcosystemSection.module.css";
-
-const services = [
-  "Leisure Travel",
-  "Visa Assistance",
-  "Corporate Travel",
-  "Wholesale Tourism",
-  "Travel Technology",
-];
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeUp, stagger, VIEWPORT, imageReveal } from "@/utils/motion";
 
 export default function TravelEcosystemSection() {
   return (
@@ -15,44 +9,63 @@ export default function TravelEcosystemSection() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.visual}>
-            <Image
-              src="/images/home/travel-ecosystem-illustration.png"
-              alt="OutMazed Travel Ecosystem"
-              fill
+            <motion.div
               className={styles.image}
-            />
+              initial="hidden"
+              variants={imageReveal}
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              <Image
+                src="/images/home/travel-ecosystem-illustration.png"
+                alt="Ecosystem"
+                width={768}
+                height={512}
+              />
+            </motion.div>
           </div>
+          <motion.div
+            className={styles.content}
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={VIEWPORT}
+          >
+            <motion.span
+              className={styles.tag}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              DELIVERING A COMPLETE ECOSYSTEM
+            </motion.span>
 
-          <div className={styles.content}>
-            <span className={styles.tag}>INTEGRATED ECOSYSTEM</span>
-
-            <h2 className={styles.heading}>
-              Everything Travel.
+            <motion.h2
+              className={styles.headline}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              A Complete
               <br />
-              Connected Under
-              <br />
-              One Roof.
-            </h2>
+              <span className={styles.headlineItalic}>Travel</span>
+              <br /> Infrastructure.
+            </motion.h2>
 
-            <p className={styles.description}>
-              OutMazed<sup>®</sup> Tourism brings together travel, visa,
-              corporate, wholesale and technology solutions under one integrated
-              ecosystem designed to deliver seamless experiences for travellers,
-              businesses and partners worldwide.
-            </p>
-
-            <div className={styles.services}>
-              {services.map((service, index) => (
-                <div key={service} className={styles.service}>
-                  <span className={styles.number}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  <span>{service}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+            <motion.p
+              className={styles.description}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              OutMazed Tourism combines leisure travel, visa services, wholesale
+              distribution, corporate travel, and technology into one connected
+              ecosystem designed for modern travelers, businesses, and partners.
+            </motion.p>
+          </motion.div>
         </div>
       </div>
     </section>

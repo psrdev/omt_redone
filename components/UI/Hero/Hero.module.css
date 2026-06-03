@@ -6,6 +6,10 @@
 .hero {
   overflow: hidden;
 }
+.container {
+  width: min(1920px, 92%);
+  margin-inline: auto;
+}
 
 .left {
   padding: 80px 56px 80px 72px;

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./EcosystemSection.module.css";
+import { motion } from "framer-motion";
+import { fadeUp, stagger, staggerSlow, VIEWPORT } from "@/utils/motion";
 
 const brands = [
   {
@@ -49,57 +51,87 @@ export default function EcosystemSection() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <span className={styles.tag}>OUR ECOSYSTEM</span>
+        <motion.span
+          className={styles.tag}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT}
+        >
+          OUR ECOSYSTEM
+        </motion.span>
 
-        <h2 className={styles.heading}>
+        <motion.h2
+          className={styles.heading}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT}
+        >
           One Group.
           <br />
           Multiple Travel Solutions.
-        </h2>
+        </motion.h2>
 
-        <div className={styles.list}>
-          {brands.map((brand) => (
-            <div key={brand.id} className={styles.row}>
-              <div className={styles.number}>({brand.id})</div>
+        <motion.div>
+          <motion.div
+            className={styles.list}
+            variants={staggerSlow}
+            initial="hidden"
+            whileInView="show"
+            viewport={VIEWPORT}
+          >
+            {brands.map((brand) => (
+              <motion.div
+                key={brand.id}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={VIEWPORT}
+              >
+                <div className={styles.row}>
+                  <div className={styles.number}>({brand.id})</div>
 
-              <div className={styles.content}>
-                <h3>{brand.title}</h3>
+                  <div className={styles.content}>
+                    <h3>{brand.title}</h3>
 
-                <div className={styles.details}>
-                  <Link
-                    href={brand.href}
-                    target="_blank"
-                    className={styles.visitLink}
-                  >
-                    Visit Brand →
-                  </Link>
-                </div>
-              </div>
-
-              <div className={styles.arrow}>↗</div>
-
-              <div className={styles.preview}>
-                <div className={styles.previewInner}>
-                  <div className={styles.logoWrap}>
-                    <Image
-                      src={brand.img}
-                      alt={brand.title}
-                      width={200}
-                      height={200}
-                      className={styles.logo}
-                    />
+                    <div className={styles.details}>
+                      <Link
+                        href={brand.href}
+                        target="_blank"
+                        className={styles.visitLink}
+                      >
+                        Visit Brand →
+                      </Link>
+                    </div>
                   </div>
 
-                  <div className={styles.previewType}>{brand.type}</div>
+                  <div className={styles.arrow}>↗</div>
 
-                  <h4>{brand.title}</h4>
+                  <div className={styles.preview}>
+                    <div className={styles.previewInner}>
+                      <div className={styles.logoWrap}>
+                        <Image
+                          src={brand.img}
+                          alt={brand.title}
+                          width={200}
+                          height={200}
+                          className={styles.logo}
+                        />
+                      </div>
 
-                  <p>{brand.desc}</p>
+                      <div className={styles.previewType}>{brand.type}</div>
+
+                      <h4>{brand.title}</h4>
+
+                      <p>{brand.desc}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

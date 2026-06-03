@@ -8,8 +8,24 @@ export default function MeaningSection() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.wordmark}>
-            <span className={styles.out}>OUT</span>
-            <span className={styles.mazed}>MAZED</span>
+            <motion.span
+              className={styles.out}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              OUT
+            </motion.span>
+            <motion.span
+              className={styles.mazed}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              MAZED
+            </motion.span>
           </div>
 
           <div className={styles.content}>
@@ -35,23 +51,31 @@ export default function MeaningSection() {
               Amazing.
             </motion.h2>
 
-            <p>
-              The name OutMazed® is derived from two powerful principles:
-              <strong> Outperform </strong>
-              and
-              <strong> Amazing</strong>.
-            </p>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              <motion.p variants={fadeUp}>
+                The name OutMazed<sup>®</sup> is derived from two powerful
+                principles:
+                <strong> Outperform </strong>
+                and
+                <strong> Amazing</strong>.
+              </motion.p>
 
-            <p>
-              These values shape every experience we create, every partnership
-              we build, and every journey we help bring to life.
-            </p>
+              <motion.p variants={fadeUp}>
+                These values shape every experience we create, every partnership
+                we build, and every journey we help bring to life.
+              </motion.p>
 
-            <p>
-              At OutMazed Tourism, we believe travel is more than reaching a
-              destination. It is about creating experiences that enrich lives,
-              strengthen connections, and inspire discovery.
-            </p>
+              <motion.p variants={fadeUp}>
+                At OutMazed Tourism, we believe travel is more than reaching a
+                destination. It is about creating experiences that enrich lives,
+                strengthen connections, and inspire discovery.
+              </motion.p>
+            </motion.div>
           </div>
         </div>
       </div>

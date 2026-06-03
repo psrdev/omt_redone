@@ -1,0 +1,171 @@
+.section {
+  padding: 8rem 0;
+
+  background: var(--bg-muted);
+}
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--primary);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.container {
+  width: min(1920px, 92%);
+  margin-inline: auto;
+}
+
+/* -------------------------------- */
+/* Header */
+/* -------------------------------- */
+
+.tag {
+  display: inline-block;
+
+  margin-bottom: 1rem;
+
+  color: var(--primary-orange);
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.25rem;
+}
+
+.header {
+  display: grid;
+
+  grid-template-columns: 1fr 420px;
+
+  gap: 4rem;
+
+  align-items: end;
+
+  margin-bottom: 5rem;
+}
+
+.heading {
+  font-size: clamp(3rem, 6vw, 6rem);
+
+  line-height: 0.92;
+
+  color: var(--text-dark);
+}
+
+.description {
+  color: var(--text-medium);
+
+  line-height: 1.9;
+}
+
+/* -------------------------------- */
+/* Commitments */
+/* -------------------------------- */
+
+.commitments {
+  border-top: 1px solid var(--border-light);
+}
+
+.commitment {
+  display: grid;
+
+  grid-template-columns: 80px 1fr 80px;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  min-height: 140px;
+
+  border-bottom: 1px solid var(--border-light);
+
+  transition: var(--transition-medium);
+
+  cursor: pointer;
+}
+
+.number {
+  color: rgba(0, 104, 175, 0.3);
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15rem;
+}
+
+.commitment p {
+  font-size: clamp(1.5rem, 2vw, 2.4rem);
+
+  line-height: 1.25;
+
+  color: var(--text-dark);
+
+  font-weight: 500;
+
+  transition: var(--transition-medium);
+}
+
+.arrow {
+  text-align: right;
+
+  color: rgba(0, 104, 175, 0.25);
+
+  font-size: 2rem;
+
+  transition: var(--transition-medium);
+}
+
+.commitment:hover {
+  padding-left: 1rem;
+}
+
+.commitment:hover p {
+  color: var(--primary);
+}
+
+.commitment:hover .arrow {
+  color: var(--primary);
+
+  transform: translateX(10px);
+}
+
+/* -------------------------------- */
+/* Responsive */
+/* -------------------------------- */
+
+@media (max-width: 992px) {
+  .header {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .commitment {
+    grid-template-columns: 50px 1fr 40px;
+
+    min-height: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .commitment p {
+    font-size: 1.2rem;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
