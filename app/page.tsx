@@ -6,14 +6,20 @@ import BrandsMarquee from "@/components/Home/BrandsMarquee";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeUp, stagger, VIEWPORT, imageReveal } from "@/utils/motion";
+import MeaningSection from "@/components/Home/MeaningSection";
+import EcosystemSection from "@/components/Home/EcosystemSection";
+import TravelEcosystemSection from "@/components/Home/TravelEcosystemSection";
 
 export default function Home() {
   return (
     <>
       <Header />
       <HeroHome />
+      <MeaningSection />
+      <EcosystemSection />
+      {/* <TravelEcosystemSection /> */}
 
-      <section className="py-2">
+      {/* <section className="py-2">
         <div className="container">
           <div className="row justify-content-center align-items-center g-4">
             <motion.div
@@ -105,10 +111,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Brands Carousel Section */}
-      <BrandsMarquee />
-      <section className="py-5 min-vh-50"> </section>
+      {/* <BrandsMarquee /> */}
 
       <Footer />
     </>

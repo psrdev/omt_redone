@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./brands-carousel.module.css";
 import { motion } from "framer-motion";
-
+import { fadeUp } from "@/utils/motion";
 export default function BrandsMarquee() {
   const brands = [
     {
@@ -44,7 +44,6 @@ export default function BrandsMarquee() {
   return (
     <section className={styles.brandsCarousel} id="brands">
       <div className="container">
-        {" "}
         <h2 className="text-center mb-2 text-primary fw-bold">
           Your Journey, Our Expertise
         </h2>
