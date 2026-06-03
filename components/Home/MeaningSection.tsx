@@ -20,7 +20,7 @@ export default function MeaningSection() {
               whileInView="show"
               viewport={VIEWPORT}
             >
-              THE MEANING BEHIND OUTMAZED®
+              THE MEANING BEHIND OUTMAZED<sup>®</sup>
             </motion.span>
 
             <motion.h2

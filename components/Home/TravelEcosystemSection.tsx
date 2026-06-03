@@ -35,9 +35,9 @@ export default function TravelEcosystemSection() {
             </h2>
 
             <p className={styles.description}>
-              OutMazed Tourism brings together travel, visa, corporate,
-              wholesale and technology solutions under one integrated ecosystem
-              designed to deliver seamless experiences for travellers,
+              OutMazed<sup>®</sup> Tourism brings together travel, visa,
+              corporate, wholesale and technology solutions under one integrated
+              ecosystem designed to deliver seamless experiences for travellers,
               businesses and partners worldwide.
             </p>
 
