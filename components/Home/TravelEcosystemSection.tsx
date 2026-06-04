@@ -19,8 +19,7 @@ export default function TravelEcosystemSection() {
               <Image
                 src="/images/home/travel-ecosystem-illustration.png"
                 alt="Ecosystem"
-                width={768}
-                height={512}
+                fill
               />
             </motion.div>
           </div>
