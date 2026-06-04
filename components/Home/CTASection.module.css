@@ -1,0 +1,189 @@
+.section {
+  position: relative;
+
+  padding: 10rem 0;
+
+  background: var(--bg-white);
+
+  overflow: hidden;
+
+  border-top: 1px solid var(--border-light);
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+}
+
+/* ----------------------------- */
+/* Marquee */
+/* ----------------------------- */
+
+.marquee {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.track {
+  display: flex;
+
+  gap: 6rem;
+
+  white-space: nowrap;
+
+  animation: marquee 35s linear infinite;
+}
+
+.track span {
+  font-size: clamp(5rem, 10vw, 10rem);
+
+  font-weight: 700;
+
+  color: rgba(0, 104, 175, 0.04);
+
+  line-height: 1;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ----------------------------- */
+/* Content */
+/* ----------------------------- */
+
+.tag {
+  display: inline-block;
+
+  color: var(--primary-orange);
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.25rem;
+
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+
+  line-height: 0.92;
+
+  color: var(--primary);
+
+  margin-bottom: 2rem;
+}
+
+.description {
+  max-width: 720px;
+
+  margin: 0 auto 3rem;
+
+  color: var(--text-medium);
+
+  line-height: 1.9;
+
+  font-size: 1.05rem;
+}
+
+/* ----------------------------- */
+/* Buttons */
+/* ----------------------------- */
+
+.actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  text-decoration: none;
+
+  padding: 1rem 2rem;
+
+  font-weight: 600;
+
+  transition: var(--transition-medium);
+}
+
+.primaryBtn {
+  background: var(--primary);
+
+  color: white;
+}
+
+.primaryBtn:hover {
+  background: var(--primary-dark);
+
+  transform: translateY(-3px);
+}
+
+.secondaryBtn {
+  border: 1px solid var(--border-light);
+
+  color: var(--text-dark);
+
+  background: white;
+}
+
+.secondaryBtn:hover {
+  border-color: var(--primary);
+
+  color: var(--primary);
+
+  transform: translateY(-3px);
+}
+
+/* ----------------------------- */
+/* Mobile */
+/* ----------------------------- */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 0;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+
+  .track span {
+    font-size: 4rem;
+  }
+}

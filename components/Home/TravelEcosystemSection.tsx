@@ -9,19 +9,11 @@ export default function TravelEcosystemSection() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.visual}>
-            <motion.div
-              className={styles.image}
-              initial="hidden"
-              variants={imageReveal}
-              whileInView="show"
-              viewport={VIEWPORT}
-            >
-              <Image
-                src="/images/home/travel-ecosystem-illustration.png"
-                alt="Ecosystem"
-                fill
-              />
-            </motion.div>
+            <Image
+              src="/images/home/travel-ecosystem-illustration.png"
+              alt="Ecosystem"
+              fill
+            />
           </div>
           <motion.div
             className={styles.content}

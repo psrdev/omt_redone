@@ -12,6 +12,8 @@ import TravelEcosystemSection from "@/components/Home/TravelEcosystemSection";
 import BuiltForModernTravel from "@/components/Home/BuiltForModernTravel";
 import StatsSection from "@/components/Home/StatsSection";
 import CommitmentSection from "@/components/Home/CommitmentSection";
+import VisionSection from "@/components/Home/VisionSection";
+import CTASection from "@/components/Home/CTASection";
 
 export default function Home() {
   return (
@@ -22,7 +24,9 @@ export default function Home() {
       <EcosystemSection />
       <TravelEcosystemSection />
       <BuiltForModernTravel />
-      {/* <CommitmentSection /> */}
+      <CommitmentSection />
+      <VisionSection />
+      <CTASection />
       {/* <StatsSection /> */}
 
       {/* <section className="py-2">

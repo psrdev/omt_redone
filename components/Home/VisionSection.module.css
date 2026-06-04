@@ -1,0 +1,159 @@
+.section {
+  position: relative;
+
+  padding: 10rem 0;
+
+  background: var(--primary-dark);
+
+  overflow: hidden;
+}
+
+.container {
+  width: min(1920px, 92%);
+  margin-inline: auto;
+}
+
+/* -------------------------------- */
+/* Background Pattern */
+/* -------------------------------- */
+
+.section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+  background-size: 80px 80px;
+
+  pointer-events: none;
+}
+
+/* -------------------------------- */
+/* Tag */
+/* -------------------------------- */
+
+.tag {
+  display: inline-block;
+
+  margin-bottom: 2rem;
+
+  color: var(--primary-orange);
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.25rem;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* -------------------------------- */
+/* Content */
+/* -------------------------------- */
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  font-size: clamp(4rem, 8vw, 8rem);
+
+  line-height: 0.9;
+
+  color: white;
+
+  max-width: 1100px;
+
+  margin-bottom: 2rem;
+}
+
+.description {
+  max-width: 720px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 1.1rem;
+
+  line-height: 1.9;
+}
+
+/* -------------------------------- */
+/* Metrics */
+/* -------------------------------- */
+
+.metrics {
+  margin-top: 6rem;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 2rem;
+
+  position: relative;
+  z-index: 2;
+}
+
+.metric {
+  padding-top: 2rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.metric span {
+  display: block;
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  color: white;
+
+  font-weight: 700;
+
+  margin-bottom: 0.75rem;
+}
+
+.metric p {
+  color: rgba(255, 255, 255, 0.7);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15rem;
+
+  font-size: 0.85rem;
+}
+
+/* -------------------------------- */
+/* Responsive */
+/* -------------------------------- */
+
+@media (max-width: 992px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 0;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
