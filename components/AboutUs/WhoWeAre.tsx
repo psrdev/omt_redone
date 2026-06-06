@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import styles from "./WhoWeAre.module.css";
+import { fadeUp, stagger } from "@/utils/motion";
 
 const items = [
   {
@@ -35,24 +36,6 @@ const items = [
       "Combining high-volume distribution with strong margin control to enable long-term market expansion.",
   },
 ];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
-const stagger = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
 
 export default function WhoWeAre() {
   return (
