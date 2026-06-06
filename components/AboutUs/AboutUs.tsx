@@ -79,7 +79,7 @@ const brands = [
 export default function AboutUs() {
   return (
     <>
-      <section className="py-5">
+      {/* <section className="py-5">
         <div className="container">
           <div className="row justify-content-center align-items-center g-4">
             <motion.div
@@ -131,7 +131,7 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CORE MODELS */}
       <BusinessModels />

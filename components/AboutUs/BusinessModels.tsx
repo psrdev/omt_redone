@@ -73,7 +73,7 @@ export default function BusinessModels() {
 
   return (
     <section className="py-5 bg-light">
-      <div className="container ">
+      <div className="container-fluid">
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
