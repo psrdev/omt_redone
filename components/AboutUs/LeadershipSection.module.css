@@ -196,7 +196,7 @@
 .teamHeader h3 {
   margin: 0;
   font-family: var(--font-heading), sans-serif;
-  color: var(--text-dark);
+  color: var(--primary);
   font-size: clamp(2.4rem, 4vw, 5rem);
   line-height: 0.94;
 

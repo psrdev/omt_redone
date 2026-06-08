@@ -66,7 +66,7 @@ export default function BrochureDownloads() {
           viewport={{ once: true, margin: "-120px" }}
         >
           <motion.div className={styles.featurePanel} variants={fadeUp}>
-            <span>Resource Library</span>
+            <span>Brochures Library</span>
 
             <h3>Company documents ready to download.</h3>
 
