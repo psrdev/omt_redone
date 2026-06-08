@@ -1,67 +1,84 @@
 .section {
+  position: relative;
   width: 100%;
-  padding: 130px 0;
-  background: var(--bg-white);
-  overflow: hidden;
+  padding: 120px 0;
+  background: var(--bg-muted);
+  /* overflow: hidden; */
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(rgba(0, 79, 133, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 79, 133, 0.045) 1px, transparent 1px);
+  background-size: 42px 42px;
 }
 
 .container {
-  width: min(1920px, 92%);
-  margin: 0 auto;
-
   position: relative;
   z-index: 2;
+  width: min(1920px, 92%);
+  margin: 0 auto;
 }
 
 .header {
-  max-width: 1180px;
-  margin-bottom: 76px;
+  max-width: 1080px;
+  margin-bottom: 72px;
 }
 
 .eyebrow {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
-
-  margin-bottom: 24px;
-
-  color: var(--primary-orange);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  margin-bottom: 28px;
 }
 
-.eyebrow::before {
-  content: "";
-  width: 8px;
-  height: 8px;
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
   background: var(--primary-orange);
-  flex-shrink: 0;
 }
 
-.header h2 {
-  margin: 0 0 28px;
-
-  color: var(--text-dark);
-  font-size: clamp(3.4rem, 7vw, 8.5rem);
-  line-height: 0.88;
-  letter-spacing: -0.08em;
-  font-weight: 800;
+.eyebrowText {
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--primary-orange);
 }
 
-.header h2 em {
-  color: var(--primary);
-  font-style: italic;
-}
-
-.header p {
-  max-width: 720px;
+.headline {
   margin: 0;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(3rem, 5.8vw, 6.6rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  color: var(--text-dark);
+}
 
+.headline em {
+  font-family: var(--font-heading), sans-serif;
+  font-style: italic;
+  color: var(--primary);
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--primary);
+  margin: 30px 0;
+}
+
+.bodyText {
+  max-width: 680px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.85;
   color: var(--text-medium);
-  font-size: 1.08rem;
-  line-height: 1.9;
 }
 
 .contentGrid {
@@ -74,36 +91,46 @@
 .statementPanel {
   position: sticky;
   top: 110px;
-
   min-height: 520px;
-  padding: 54px;
-
+  padding: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.74),
+      rgba(255, 255, 255, 0.42)
+    ),
+    var(--bg-muted);
+  border: 1px solid rgba(0, 79, 133, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 37, 73, 0.08);
+}
 
-  border: 3px solid var(--primary-dark);
-  background: var(--bg-muted);
+.statementPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 4px solid var(--primary-dark);
+  pointer-events: none;
 }
 
 .panelLabel {
   width: fit-content;
-
   color: var(--primary-orange);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .statementPanel h3 {
-  max-width: 650px;
+  max-width: 620px;
   margin: 70px 0;
-
   color: var(--text-dark);
-  font-size: clamp(2.4rem, 4vw, 5.4rem);
-  line-height: 0.92;
-  letter-spacing: -0.07em;
+  font-size: clamp(2.2rem, 3.5vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
   font-weight: 800;
 }
 
@@ -121,8 +148,7 @@
 .metrics strong {
   display: block;
   margin-bottom: 8px;
-
-  color: var(--primary);
+  color: var(--primary-dark);
   font-size: clamp(1.3rem, 2vw, 2rem);
   line-height: 1;
   letter-spacing: -0.04em;
@@ -130,9 +156,8 @@
 
 .metrics span {
   display: block;
-
   color: var(--text-medium);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   line-height: 1.5;
 }
 
@@ -142,16 +167,11 @@
 
 .item {
   position: relative;
-
   display: grid;
-  grid-template-columns: 86px 1fr;
+  grid-template-columns: 78px 1fr;
   gap: 34px;
-
-  padding: 42px 0;
-
+  padding: 40px 0;
   border-bottom: 1px solid var(--border-light);
-  background: transparent;
-
   transition:
     padding-left var(--transition-medium),
     border-color var(--transition-medium);
@@ -159,14 +179,11 @@
 
 .item::before {
   content: "";
-
   position: absolute;
   left: 0;
-  top: 42px;
-
+  top: 40px;
   width: 3px;
   height: 0;
-
   background: var(--primary);
   transition: height var(--transition-medium);
 }
@@ -177,38 +194,36 @@
 }
 
 .item:hover::before {
-  height: calc(100% - 84px);
+  height: calc(100% - 80px);
 }
 
 .number {
   color: var(--primary);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.18em;
 }
 
 .item h3 {
   margin: 0 0 14px;
-
-  color: var(--text-dark);
-  font-size: clamp(1.7rem, 2.7vw, 3.4rem);
+  color: var(--primary);
+  font-size: clamp(1.55rem, 2.35vw, 2.8rem);
   line-height: 1;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.055em;
   font-weight: 800;
 }
 
 .item p {
   max-width: 760px;
   margin: 0;
-
   color: var(--text-medium);
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.8;
 }
 
 @media (max-width: 1200px) {
   .section {
-    padding: 110px 0;
+    padding: 105px 0;
   }
 
   .contentGrid {
@@ -223,24 +238,24 @@
   }
 
   .statementPanel h3 {
-    margin: 70px 0;
+    margin: 60px 0;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 86px 0;
+    padding: 84px 0;
   }
 
   .header {
-    margin-bottom: 46px;
+    margin-bottom: 48px;
   }
 
-  .header h2 {
-    font-size: 3.2rem;
+  .headline {
+    font-size: 3.1rem;
   }
 
-  .header p,
+  .bodyText,
   .item p {
     font-size: 0.95rem;
     line-height: 1.75;
@@ -248,12 +263,11 @@
 
   .statementPanel {
     padding: 34px 24px;
-    border-width: 2px;
   }
 
   .statementPanel h3 {
-    margin: 48px 0;
-    font-size: 2.35rem;
+    margin: 46px 0;
+    font-size: 2.25rem;
   }
 
   .metrics {
@@ -276,24 +290,20 @@
 }
 
 @media (max-width: 576px) {
-  .container {
-    width: 92%;
-  }
-
-  .header h2 {
+  .headline {
     font-size: 2.55rem;
   }
 
-  .eyebrow {
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
+  .eyebrowText {
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
   }
 
   .statementPanel h3 {
-    font-size: 2.05rem;
+    font-size: 2rem;
   }
 
   .item h3 {
-    font-size: 1.55rem;
+    font-size: 1.5rem;
   }
 }

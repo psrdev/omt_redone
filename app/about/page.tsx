@@ -8,6 +8,9 @@ import AboutUs from "@/components/AboutUs/AboutUs";
 import Leadership from "@/components/Leadership/Leadership";
 import AboutHero from "@/components/AboutUs/AboutHero";
 import TravelEcosystem from "@/components/AboutUs/TravelEcosystem";
+import BrandEcosystem from "@/components/AboutUs/BrandEcosystem";
+import BrochureDownloads from "@/components/AboutUs/BrochureDownloads";
+import LeadershipSection from "@/components/AboutUs/LeadershipSection";
 
 export default function Home() {
   return (
@@ -22,8 +25,11 @@ export default function Home() {
         title="OutMazed® Tourism – Travel Technology That Powers Global Distribution"
         subtitle="OutMazed® Tourism is a Dubai-based Travel Technology company redefining how travel products are distributed, bundled, and monetized across global markets."
       /> */}
-      {/* <WhoWeAre />
-      <AboutUs /> */}
+      <WhoWeAre />
+      <BrandEcosystem />
+      <BrochureDownloads />
+      <LeadershipSection />
+      {/* <AboutUs /> */}
 
       <Footer />
     </>

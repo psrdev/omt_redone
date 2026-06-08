@@ -40,6 +40,8 @@ const items = [
 export default function WhoWeAre() {
   return (
     <section className={styles.section}>
+      <div className={styles.pattern} />
+
       <div className={styles.container}>
         <motion.div
           className={styles.header}
@@ -48,16 +50,19 @@ export default function WhoWeAre() {
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
         >
-          <motion.span className={styles.eyebrow} variants={fadeUp}>
-            WHO WE ARE
-          </motion.span>
+          <motion.div className={styles.eyebrow} variants={fadeUp}>
+            <span className={styles.eyebrowDot} />
+            <span className={styles.eyebrowText}>Who We Are</span>
+          </motion.div>
 
-          <motion.h2 variants={fadeUp}>
+          <motion.h2 className={styles.headline} variants={fadeUp}>
             Building The Future Of <br />
             <em>Travel Distribution.</em>
           </motion.h2>
 
-          <motion.p variants={fadeUp}>
+          <motion.div className={styles.divider} variants={fadeUp} />
+
+          <motion.p className={styles.bodyText} variants={fadeUp}>
             OutMazed® Tourism brings travel expertise, destination knowledge,
             digital infrastructure, and commercial distribution into one
             connected ecosystem.
