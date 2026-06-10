@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./BrandEcosystem.module.css";
 import { fadeUp, stagger } from "@/utils/motion";
+
+const AUTO_CHANGE_DURATION = 4000;
 
 const brands = [
   {
@@ -47,7 +48,19 @@ const brands = [
 
 export default function BrandEcosystem() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const activeBrand = brands[activeIndex];
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % brands.length);
+    }, AUTO_CHANGE_DURATION);
+
+    return () => clearTimeout(timer);
+  }, [activeIndex, isPaused]);
 
   return (
     <section className={styles.section}>
@@ -83,6 +96,8 @@ export default function BrandEcosystem() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
           <motion.div className={styles.parentBlock} variants={fadeUp}>
             <span>Parent Company</span>
@@ -101,7 +116,7 @@ export default function BrandEcosystem() {
             className={styles.activePanel}
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className={styles.activeType}>{activeBrand.type}</span>
 
@@ -127,16 +142,22 @@ export default function BrandEcosystem() {
                 className={`${styles.brandCard} ${
                   activeIndex === index ? styles.active : ""
                 }`}
-                onMouseEnter={() => setActiveIndex(index)}
-                onFocus={() => setActiveIndex(index)}
+                onMouseEnter={() => {
+                  setIsPaused(true);
+                  setActiveIndex(index);
+                }}
+                onMouseLeave={() => setIsPaused(false)}
+                onFocus={() => {
+                  setIsPaused(true);
+                  setActiveIndex(index);
+                }}
+                onBlur={() => setIsPaused(false)}
                 onClick={() => setActiveIndex(index)}
                 variants={fadeUp}
               >
-                <Image
+                <img
                   src={brand.img}
                   alt={brand.title}
-                  width={190}
-                  height={190}
                   className={styles.brandLogo}
                 />
 

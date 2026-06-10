@@ -2,7 +2,6 @@
   width: 100%;
   padding: 120px 0;
   background: var(--bg-white);
-  /* overflow: hidden; */
 }
 
 .container {
@@ -43,7 +42,6 @@
   font-size: clamp(3rem, 5.4vw, 6.4rem);
   font-weight: 800;
   line-height: 0.94;
-
   color: var(--text-dark);
 }
 
@@ -96,7 +94,6 @@
   font-family: var(--font-heading), sans-serif;
   font-size: clamp(2.5rem, 5vw, 5.6rem);
   line-height: 0.94;
-
   font-weight: 800;
 }
 
@@ -152,7 +149,6 @@
   color: var(--text-dark);
   font-size: clamp(2.4rem, 4.3vw, 5.2rem);
   line-height: 0.94;
-
   font-weight: 800;
 }
 
@@ -205,6 +201,31 @@
   transition: background var(--transition-medium);
 }
 
+.brandCard::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 3px;
+  width: 0;
+  background: var(--primary);
+  z-index: 2;
+}
+
+.brandCard.active::before {
+  animation: brandProgress 4s linear forwards;
+}
+
+@keyframes brandProgress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
 .brandCard:last-child {
   border-right: 0;
 }
@@ -215,8 +236,11 @@
 }
 
 .brandLogo {
+  display: block;
   width: min(180px, 72%);
+  max-width: 180px;
   height: auto;
+  max-height: 180px;
   object-fit: contain;
   transition:
     transform var(--transition-medium),
@@ -384,6 +408,7 @@
 
   .brandLogo {
     width: 78px;
+    max-width: 78px;
     max-height: 78px;
   }
 
@@ -398,7 +423,6 @@
     color: var(--text-dark);
     font-size: 1.35rem;
     line-height: 1;
-
     font-weight: 800;
   }
 
@@ -445,6 +469,7 @@
 
   .brandLogo {
     width: 64px;
+    max-width: 64px;
     max-height: 64px;
   }
 

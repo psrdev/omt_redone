@@ -37,6 +37,29 @@ const items = [
   },
 ];
 
+const pillars = [
+  {
+    title: "B2B",
+    desc: "Travel Partner Network",
+  },
+  {
+    title: "B2C",
+    desc: "Consumer Travel Brands",
+  },
+  {
+    title: "API",
+    desc: "Distribution Infrastructure",
+  },
+  {
+    title: "Corporate",
+    desc: "Business Travel Solutions",
+  },
+  {
+    title: "Tech",
+    desc: "Digital Innovation Stack",
+  },
+];
+
 export default function WhoWeAre() {
   return (
     <section className={styles.section}>
@@ -84,21 +107,13 @@ export default function WhoWeAre() {
               for the world.
             </h3>
 
-            <div className={styles.metrics}>
-              <div>
-                <strong>B2B</strong>
-                <span>Partner ecosystem</span>
-              </div>
-
-              <div>
-                <strong>B2C</strong>
-                <span>Consumer travel brands</span>
-              </div>
-
-              <div>
-                <strong>API</strong>
-                <span>Scalable infrastructure</span>
-              </div>
+            <div className={styles.pillars}>
+              {pillars.map((pillar) => (
+                <div key={pillar.title} className={styles.pillar}>
+                  <strong>{pillar.title}</strong>
+                  <span>{pillar.desc}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
