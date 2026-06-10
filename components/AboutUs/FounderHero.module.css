@@ -208,22 +208,22 @@
 .image {
   object-fit: contain;
   object-position: bottom center;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
   transition:
     filter 0.55s ease,
     transform 0.55s ease;
 }
 
-.founderCard:hover .image {
+/* .founderCard:hover .image {
   filter: grayscale(0);
   transform: scale(1.025);
-}
+} */
 
 /* Image Labels */
 .imageName {
   position: absolute;
   left: clamp(1.6rem, 2vw, 2.2rem);
-  bottom: clamp(1.6rem, 2vw, 2.2rem);
+  top: clamp(1.6rem, 2vw, 2.2rem);
   z-index: 7;
   display: grid;
   gap: 0.25rem;
@@ -251,7 +251,7 @@
 .experienceBadge {
   position: absolute;
   right: clamp(1.6rem, 2vw, 2.2rem);
-  top: clamp(1.6rem, 2vw, 2.2rem);
+  bottom: clamp(1.6rem, 2vw, 2.2rem);
   z-index: 7;
   width: 132px;
   min-height: 132px;
