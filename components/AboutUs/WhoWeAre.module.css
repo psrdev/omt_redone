@@ -172,12 +172,12 @@
 .pillar::after {
   content: "";
   position: absolute;
-  right: -34px;
-  top: -34px;
-  width: 84px;
-  height: 84px;
-  border-radius: 999px;
-  background: rgba(0, 79, 133, 0.055);
+  right: -1px;
+  bottom: -1px;
+  width: 86px;
+  height: 86px;
+  background: rgba(0, 79, 133, 0.065);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
   transition:
     transform var(--transition-medium),
     background var(--transition-medium);
