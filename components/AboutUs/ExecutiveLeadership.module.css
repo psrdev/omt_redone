@@ -278,16 +278,16 @@
 .image {
   object-fit: contain;
   object-position: bottom center;
-  filter: grayscale(1) drop-shadow(0 26px 34px rgba(0, 0, 0, 0.18));
+  filter: grayscale(0) drop-shadow(0 26px 34px rgba(0, 0, 0, 0.18));
   transition:
     filter 0.55s ease,
     transform 0.55s ease;
 }
 
-.card:hover .image {
+/* .card:hover .image {
   filter: grayscale(0) drop-shadow(0 30px 42px rgba(0, 0, 0, 0.22));
   transform: scale(1.035);
-}
+} */
 
 .verticalRole {
   position: absolute;
