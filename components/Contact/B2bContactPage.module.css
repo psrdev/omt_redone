@@ -571,3 +571,79 @@
     height: 300px;
   }
 }
+
+.uploadGroup {
+  position: relative;
+}
+
+.uploadLabel {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 120px;
+  padding: 22px;
+  border: 1px dashed rgba(0, 104, 175, 0.35);
+  background:
+    linear-gradient(135deg, rgba(0, 104, 175, 0.06), rgba(242, 133, 101, 0.06)),
+    #ffffff;
+  cursor: pointer;
+  transition: 0.35s ease;
+}
+
+.uploadLabel:hover {
+  border-color: var(--primary-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0, 79, 133, 0.1);
+}
+
+.uploadIcon {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 1.35rem;
+}
+
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.uploadContent strong {
+  font-size: 0.98rem;
+  color: var(--text-dark);
+}
+
+.uploadContent small {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-medium);
+}
+
+.uploadContent em {
+  width: fit-content;
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: var(--primary-dark);
+  background: rgba(0, 104, 175, 0.08);
+}
+
+.uploadInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 575px) {
+  .uploadLabel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
