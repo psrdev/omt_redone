@@ -89,6 +89,21 @@
   object-position: center;
 }
 
+.imageBox {
+  position: relative;
+  overflow: hidden;
+}
+
+.imageInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  object-fit: cover;
+}
+
 /* LARGE DESKTOP */
 
 @media (max-width: 1600px) {

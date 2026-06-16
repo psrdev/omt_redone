@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import styles from "./InternalHero.module.css";
+import { fadeUp, stagger, VIEWPORT } from "@/utils/motion";
 
 type InternalHeroProps = {
   eyebrow: string;
@@ -22,11 +26,19 @@ export default function InternalHero({
 }: InternalHeroProps) {
   return (
     <section className={styles.internalHero}>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <span className={styles.eyebrow}>{eyebrow}</span>
+      <motion.div
+        className={styles.container}
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={VIEWPORT}
+      >
+        <motion.div className={styles.content} variants={stagger}>
+          <motion.span className={styles.eyebrow} variants={fadeUp}>
+            {eyebrow}
+          </motion.span>
 
-          <h1>
+          <motion.h1 variants={fadeUp}>
             {title}
             {highlightedTitle && (
               <>
@@ -34,23 +46,55 @@ export default function InternalHero({
                 <span>{highlightedTitle}</span>
               </>
             )}
-          </h1>
+          </motion.h1>
 
-          <p>{description}</p>
+          <motion.p variants={fadeUp}>{description}</motion.p>
 
-          {subDescription && <p>{subDescription}</p>}
-        </div>
+          {subDescription && (
+            <motion.p variants={fadeUp}>{subDescription}</motion.p>
+          )}
+        </motion.div>
 
-        <div className={styles.imageBox}>
-          <Image
-            src={image}
-            alt={imageAlt}
-            fill
-            priority
-            className={styles.image}
-          />
-        </div>
-      </div>
+        <motion.div
+          className={styles.imageBox}
+          initial={{
+            opacity: 0,
+            y: 60,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={VIEWPORT}
+          transition={{
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          <motion.div
+            className={styles.imageInner}
+            initial={{
+              scale: 1.15,
+            }}
+            whileInView={{
+              scale: 1,
+            }}
+            viewport={VIEWPORT}
+            transition={{
+              duration: 1.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <Image
+              src={image}
+              alt={imageAlt}
+              fill
+              priority
+              className={styles.image}
+            />
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

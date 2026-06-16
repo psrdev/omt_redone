@@ -30,8 +30,6 @@
   text-transform: uppercase;
 }
 
-/* Shared section intro */
-
 .sectionIntro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.45fr);
@@ -44,7 +42,7 @@
 .jobsHeader h2,
 .ctaBox h2 {
   margin: 0;
-  color: var(--text-dark);
+  color: var(--primary);
   font-size: clamp(2.8rem, 5vw, 6.2rem);
   font-weight: 500;
   line-height: 0.98;
@@ -59,8 +57,6 @@
   line-height: 1.8;
 }
 
-/* Culture */
-
 .cultureSection {
   padding: clamp(90px, 9vw, 150px) 0;
   background: var(--bg-white);
@@ -69,18 +65,20 @@
 .cultureGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--border-light);
-  border-left: 1px solid var(--border-light);
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
 }
 
 .cultureCard {
-  min-height: 360px;
+  position: relative;
+  min-height: 390px;
   display: flex;
   flex-direction: column;
-  padding: clamp(30px, 3vw, 48px);
-  border-right: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
+  justify-content: space-between;
+  padding: clamp(30px, 3vw, 50px);
   background: var(--bg-white);
+  overflow: hidden;
   transition:
     background-color 250ms ease,
     transform 250ms ease;
@@ -90,40 +88,69 @@
   background: var(--bg-muted);
 }
 
+.cultureCard::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(0, 104, 175, 0.1);
+  border-radius: 50%;
+  transition:
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
 .cultureCard:hover {
   background: var(--primary-dark);
   transform: translateY(-8px);
 }
 
+.cultureCard:hover::after {
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: scale(1.18);
+}
+
 .cultureIcon {
-  width: 54px;
-  height: 54px;
+  position: relative;
+  z-index: 2;
+  width: clamp(84px, 7vw, 118px);
+  height: clamp(84px, 7vw, 118px);
   display: grid;
   place-items: center;
-  margin-bottom: auto;
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(0, 104, 175, 0.14);
+  background: var(--bg-white);
   color: var(--primary);
-  font-size: 1.05rem;
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  box-shadow: 0 24px 55px rgba(0, 79, 133, 0.08);
   transition:
     background-color 250ms ease,
     border-color 250ms ease,
-    color 250ms ease;
+    color 250ms ease,
+    transform 250ms ease;
 }
 
 .cultureCard:hover .cultureIcon {
   background: var(--primary-orange);
   border-color: var(--primary-orange);
   color: var(--bg-white);
+  transform: rotate(-4deg) scale(1.03);
+}
+
+.cultureText {
+  position: relative;
+  z-index: 2;
 }
 
 .cultureCard h3 {
-  max-width: 290px;
-  margin: 86px 0 18px;
+  max-width: 300px;
+  margin: 70px 0 18px;
   color: var(--text-dark);
-  font-size: clamp(1.25rem, 1.6vw, 1.65rem);
+  font-size: clamp(1.3rem, 1.7vw, 1.8rem);
   font-weight: 600;
-  line-height: 1.24;
-  letter-spacing: -0.035em;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
   transition: color 250ms ease;
 }
 
@@ -131,7 +158,7 @@
   max-width: 350px;
   margin: 0;
   color: var(--text-medium);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.75;
   transition: color 250ms ease;
 }
@@ -141,10 +168,8 @@
 }
 
 .cultureCard:hover p {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.74);
 }
-
-/* Jobs */
 
 .jobsSection {
   padding: clamp(90px, 9vw, 150px) 0;
@@ -161,32 +186,33 @@
 
 .jobsList {
   display: grid;
-  border-top: 1px solid var(--border-light);
+  gap: 18px;
 }
 
 .jobCard {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.34fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.32fr) auto;
   align-items: center;
-  gap: clamp(28px, 4vw, 72px);
-  min-height: 190px;
-  padding: clamp(30px, 3.5vw, 56px) 0;
-  border: 0;
-  border-bottom: 1px solid var(--border-light);
-  background: transparent;
+  gap: clamp(22px, 3vw, 54px);
+  min-height: 176px;
+  padding: clamp(28px, 3vw, 42px);
+  border: 1px solid var(--border-light);
+  background: var(--bg-white);
   color: inherit;
   font: inherit;
   text-align: left;
   cursor: pointer;
   transition:
-    padding-left 240ms ease,
-    background-color 240ms ease;
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms ease;
 }
 
 .jobCard:hover {
-  padding-left: 30px;
-  background: var(--bg-white);
+  border-color: rgba(0, 104, 175, 0.24);
+  box-shadow: 0 26px 70px rgba(0, 79, 133, 0.09);
+  transform: translateY(-4px);
 }
 
 .jobMain,
@@ -206,8 +232,8 @@
 }
 
 .jobTitle {
-  color: var(--text-dark);
-  font-size: clamp(1.55rem, 2.2vw, 2.5rem);
+  color: var(--primary);
+  font-size: clamp(1.45rem, 2vw, 2.25rem);
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.045em;
@@ -246,11 +272,12 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .viewRole svg {
-  width: 42px;
-  height: 42px;
+  width: 16px;
+  height: 16px;
   padding: 14px;
   border: 1px solid var(--border-light);
   transition:
@@ -266,8 +293,6 @@
   color: var(--bg-white);
   transform: translateX(4px);
 }
-
-/* CTA */
 
 .ctaSection {
   padding: clamp(90px, 8vw, 140px) 0;
@@ -336,17 +361,37 @@
   transform: translateY(-3px);
 }
 
-/* Modal */
-
 .modalContent {
-  width: min(1080px, 100%);
+  width: min(1040px, 100%);
   color: var(--text-dark);
 }
 
 .modalHeader {
-  padding: clamp(34px, 4vw, 56px);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  padding: clamp(34px, 4vw, 58px);
   background: var(--primary-dark);
   color: var(--bg-white);
+  overflow: hidden;
+}
+
+.modalHeader::after {
+  content: "";
+  position: absolute;
+  right: -130px;
+  top: -150px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.modalHeader > * {
+  position: relative;
+  z-index: 2;
 }
 
 .modalHeader h2 {
@@ -377,19 +422,58 @@
   color: var(--primary-orange);
 }
 
-.modalGrid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+.modalApplyBtn {
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 24px;
+  border: 0;
+  background: var(--primary-orange);
+  color: var(--bg-white);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.modalApplyBtn:hover {
+  background: var(--bg-white);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.modalStack {
+  display: flex;
+  flex-direction: column;
 }
 
 .roleDetails {
-  padding: clamp(30px, 4vw, 52px);
-  border-right: 1px solid var(--border-light);
+  padding: clamp(34px, 4vw, 58px);
   background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.detailBlock {
+  max-width: 860px;
+}
+
+.detailBlock + .detailBlock {
+  margin-top: 44px;
+  padding-top: 38px;
+  border-top: 1px solid var(--border-light);
 }
 
 .roleDetails h3 {
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   color: var(--primary-dark);
   font-size: 0.72rem;
   font-weight: 800;
@@ -397,16 +481,23 @@
   text-transform: uppercase;
 }
 
-.roleDetails p {
-  margin: 0 0 38px;
+.descriptionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.descriptionContent p {
+  margin: 0;
   color: var(--text-medium);
-  line-height: 1.8;
+  font-size: 0.96rem;
+  line-height: 1.9;
 }
 
 .roleDetails ul {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 26px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -414,35 +505,35 @@
 
 .roleDetails li {
   display: flex;
-  gap: 11px;
+  gap: 12px;
   color: var(--text-medium);
-  font-size: 0.86rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.65;
 }
 
 .roleDetails li svg {
-  margin-top: 4px;
+  width: 15px;
+  margin-top: 5px;
   color: var(--primary);
 }
 
-/* Apply form */
-
 .applyBox {
-  padding: clamp(30px, 4vw, 52px);
+  scroll-margin-top: 24px;
+  padding: clamp(34px, 4vw, 58px);
   background: var(--bg-muted);
 }
 
 .applyHeading {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 30px;
+  gap: 18px;
+  margin-bottom: 32px;
 }
 
 .applyHeading > svg {
-  width: 48px;
-  height: 48px;
-  padding: 14px;
+  width: 52px;
+  height: 52px;
+  padding: 15px;
   background: var(--primary-dark);
   color: var(--bg-white);
 }
@@ -514,14 +605,24 @@
 
 .uploadBox {
   display: grid !important;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 58px minmax(0, 1fr);
+  grid-template-rows: auto auto;
   align-items: center;
-  gap: 8px 14px;
-  min-height: 98px;
-  padding: 16px;
-  border: 1px dashed var(--border-light);
+  column-gap: 18px;
+  row-gap: 4px;
+  min-height: 108px;
+  padding: 18px;
+  border: 1px dashed rgba(0, 104, 175, 0.28);
   background: var(--bg-white);
   cursor: pointer;
+  transition:
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.uploadBox:hover {
+  border-color: var(--primary);
+  background: rgba(0, 104, 175, 0.03);
 }
 
 .uploadBox input {
@@ -529,19 +630,35 @@
 }
 
 .uploadBox svg {
-  grid-row: span 2;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  width: 22px;
+  height: 22px;
+  padding: 16px;
+  background: var(--bg-muted);
   color: var(--primary);
-  font-size: 1.2rem;
+  align-self: center;
+  justify-self: center;
+  box-sizing: content-box;
 }
 
 .uploadBox strong {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
   color: var(--text-dark);
-  font-size: 0.82rem;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .uploadBox small {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
   color: var(--text-medium);
   font-size: 0.68rem;
+  line-height: 1.4;
 }
 
 .form button {
@@ -596,8 +713,6 @@
   font-size: 0.82rem;
 }
 
-/* Responsive */
-
 @media (max-width: 1200px) {
   .cultureGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -605,22 +720,16 @@
 
   .jobsHeader,
   .sectionIntro,
-  .ctaBox,
-  .modalGrid {
+  .ctaBox {
     grid-template-columns: 1fr;
   }
 
   .jobCard {
-    grid-template-columns: 1fr minmax(190px, 0.4fr);
+    grid-template-columns: 1fr minmax(190px, 0.35fr);
   }
 
   .viewRole {
     grid-column: 1 / -1;
-  }
-
-  .roleDetails {
-    border-right: 0;
-    border-bottom: 1px solid var(--border-light);
   }
 }
 
@@ -639,18 +748,40 @@
     grid-template-columns: 1fr;
   }
 
-  .jobCard {
-    grid-template-columns: 1fr;
-    padding: 34px 0;
+  .cultureCard {
+    min-height: 320px;
   }
 
-  .jobCard:hover {
-    padding-left: 0;
+  .cultureCard h3 {
+    margin-top: 52px;
+  }
+
+  .jobCard {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+  }
+
+  .jobInfo,
+  .viewRole {
+    grid-column: auto;
   }
 
   .jobInfo {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .modalHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .modalApplyBtn {
+    width: fit-content;
+  }
+
+  .roleDetails ul {
+    grid-template-columns: 1fr;
   }
 
   .formRow {
@@ -675,5 +806,20 @@
   .roleDetails,
   .applyBox {
     padding: 28px 22px;
+  }
+
+  .modalMeta {
+    gap: 14px;
+  }
+
+  .uploadBox {
+    grid-template-columns: 52px minmax(0, 1fr);
+    padding: 16px;
+  }
+
+  .uploadBox svg {
+    width: 20px;
+    height: 20px;
+    padding: 14px;
   }
 }

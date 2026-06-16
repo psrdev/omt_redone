@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,7 +27,7 @@ interface Job {
   department: string;
   location: string;
   type: string;
-  description: string;
+  description: string[];
   responsibilities: string[];
 }
 
@@ -38,8 +38,11 @@ const jobs: Job[] = [
     department: "Engineering",
     location: "Dubai, UAE",
     type: "Full-time",
-    description:
+    description: [
       "Build scalable systems and lead technical initiatives across our connected travel ecosystem.",
+      "You will work closely with product, operations and leadership teams to create reliable digital platforms that support travelers, agents and partners.",
+      "This role is ideal for someone who enjoys ownership, clean architecture and solving real business problems through technology.",
+    ],
     responsibilities: [
       "Build scalable frontend and backend systems",
       "Lead technical architecture decisions",
@@ -53,8 +56,10 @@ const jobs: Job[] = [
     department: "Design",
     location: "Remote",
     type: "Full-time",
-    description:
+    description: [
       "Shape digital experiences and create elegant, intuitive interfaces for travelers and partners.",
+      "You will convert complex travel workflows into simple, premium and conversion-focused user journeys.",
+    ],
     responsibilities: [
       "Design modern UI systems",
       "Create interactive prototypes",
@@ -68,8 +73,10 @@ const jobs: Job[] = [
     department: "Marketing",
     location: "Dubai, UAE",
     type: "Full-time",
-    description:
+    description: [
       "Drive growth strategies, brand communication and high-performing marketing campaigns.",
+      "You will work across multiple travel brands, campaigns and digital channels to increase visibility, engagement and qualified leads.",
+    ],
     responsibilities: [
       "Plan growth campaigns",
       "Manage paid ads",
@@ -106,11 +113,19 @@ export default function Career() {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [selectedFile, setSelectedFile] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const applyFormRef = useRef<HTMLDivElement | null>(null);
 
   const closeModal = () => {
     setSelectedJob(null);
     setSelectedFile("");
     setSubmitted(false);
+  };
+
+  const scrollToApplyForm = () => {
+    applyFormRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -167,8 +182,10 @@ export default function Career() {
                     <FontAwesomeIcon icon={item.icon} />
                   </span>
 
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                  <div className={styles.cultureText}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
                 </motion.article>
               ))}
             </motion.div>
@@ -216,7 +233,7 @@ export default function Career() {
                       <span className={styles.jobTitle}>{job.title}</span>
 
                       <span className={styles.jobDescription}>
-                        {job.description}
+                        {job.description[0]}
                       </span>
                     </span>
 
@@ -279,43 +296,63 @@ export default function Career() {
         {selectedJob && (
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <span className={styles.department}>
-                {selectedJob.department}
-              </span>
-
-              <h2>{selectedJob.title}</h2>
-
-              <div className={styles.modalMeta}>
-                <span>
-                  <FontAwesomeIcon icon={faLocationDot} />
-                  {selectedJob.location}
+              <div>
+                <span className={styles.department}>
+                  {selectedJob.department}
                 </span>
 
-                <span>
-                  <FontAwesomeIcon icon={faClock} />
-                  {selectedJob.type}
-                </span>
+                <h2>{selectedJob.title}</h2>
+
+                <div className={styles.modalMeta}>
+                  <span>
+                    <FontAwesomeIcon icon={faLocationDot} />
+                    {selectedJob.location}
+                  </span>
+
+                  <span>
+                    <FontAwesomeIcon icon={faClock} />
+                    {selectedJob.type}
+                  </span>
+                </div>
               </div>
+
+              <button
+                type="button"
+                className={styles.modalApplyBtn}
+                onClick={scrollToApplyForm}
+              >
+                Apply Now
+                <FontAwesomeIcon icon={faArrowRight} />
+              </button>
             </div>
 
-            <div className={styles.modalGrid}>
+            <div className={styles.modalStack}>
               <div className={styles.roleDetails}>
-                <h3>About the role</h3>
-                <p>{selectedJob.description}</p>
+                <div className={styles.detailBlock}>
+                  <h3>About the role</h3>
 
-                <h3>Responsibilities</h3>
+                  <div className={styles.descriptionContent}>
+                    {selectedJob.description.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
 
-                <ul>
-                  {selectedJob.responsibilities.map((item) => (
-                    <li key={item}>
-                      <FontAwesomeIcon icon={faCheck} />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className={styles.detailBlock}>
+                  <h3>Responsibilities</h3>
+
+                  <ul>
+                    {selectedJob.responsibilities.map((item) => (
+                      <li key={item}>
+                        <FontAwesomeIcon icon={faCheck} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div className={styles.applyBox}>
+              <div className={styles.applyBox} ref={applyFormRef}>
                 <div className={styles.applyHeading}>
                   <FontAwesomeIcon icon={faUserTie} />
 
