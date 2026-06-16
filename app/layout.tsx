@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="en"
       className={`${belleza.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col" id="top">
         <BootstrapClient />
         {children}
       </body>

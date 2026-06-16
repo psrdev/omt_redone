@@ -1,0 +1,37 @@
+.loaderWrap {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center, rgba(0, 104, 175, 0.12), transparent 42%),
+    #ffffff;
+}
+
+.logoCard {
+  width: clamp(180px, 22vw, 260px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  animation: loaderFloat 2.8s ease-in-out infinite;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 35px rgba(0, 79, 133, 0.16));
+}
+
+@keyframes loaderFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.025);
+  }
+}

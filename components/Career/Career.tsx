@@ -1,27 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import styles from "./career.module.css";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { fadeUp, stagger, VIEWPORT } from "@/utils/motion";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
-  faLocationDot,
-  faClock,
   faArrowRight,
-  faXmark,
-  faBriefcase,
-  faUserTie,
-  faPaperPlane,
+  faCheck,
+  faClock,
   faFileArrowUp,
-  faRocket,
-  faLightbulb,
-  faWrench,
   faHeart,
+  faLightbulb,
+  faLocationDot,
+  faPaperPlane,
+  faRocket,
+  faUserTie,
+  faWrench,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { fadeUp, stagger, VIEWPORT } from "@/utils/motion";
 import Modal from "../UI/Modal/Modal";
+import styles from "./career.module.css";
 
 interface Job {
   id: number;
@@ -41,8 +39,7 @@ const jobs: Job[] = [
     location: "Dubai, UAE",
     type: "Full-time",
     description:
-      "Build scalable systems and lead technical initiatives in a fast-paced environment.",
-
+      "Build scalable systems and lead technical initiatives across our connected travel ecosystem.",
     responsibilities: [
       "Build scalable frontend and backend systems",
       "Lead technical architecture decisions",
@@ -50,7 +47,6 @@ const jobs: Job[] = [
       "Mentor junior developers",
     ],
   },
-
   {
     id: 2,
     title: "Product Designer",
@@ -58,8 +54,7 @@ const jobs: Job[] = [
     location: "Remote",
     type: "Full-time",
     description:
-      "Shape user experiences and create beautiful, intuitive interfaces.",
-
+      "Shape digital experiences and create elegant, intuitive interfaces for travelers and partners.",
     responsibilities: [
       "Design modern UI systems",
       "Create interactive prototypes",
@@ -67,15 +62,14 @@ const jobs: Job[] = [
       "Collaborate with developers",
     ],
   },
-
   {
     id: 3,
     title: "Marketing Manager",
     department: "Marketing",
     location: "Dubai, UAE",
     type: "Full-time",
-    description: "Drive growth strategies and build brand awareness.",
-
+    description:
+      "Drive growth strategies, brand communication and high-performing marketing campaigns.",
     responsibilities: [
       "Plan growth campaigns",
       "Manage paid ads",
@@ -85,345 +79,307 @@ const jobs: Job[] = [
   },
 ];
 
+const cultureItems = [
+  {
+    title: "Solve for the Traveler",
+    icon: faRocket,
+    text: "Create meaningful value through every service, system and interaction.",
+  },
+  {
+    title: "Explore Further",
+    icon: faLightbulb,
+    text: "Bring new ideas, challenge ordinary thinking and improve continuously.",
+  },
+  {
+    title: "Move With Ownership",
+    icon: faWrench,
+    text: "Stay aligned, act with clarity and take responsibility for the details.",
+  },
+  {
+    title: "Deliver With HEART",
+    icon: faHeart,
+    text: "Lead with humility, empathy, adaptability, respect and transparency.",
+  },
+];
+
 export default function Career() {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+  const [selectedFile, setSelectedFile] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const closeModal = () => {
+    setSelectedJob(null);
+    setSelectedFile("");
+    setSubmitted(false);
+  };
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    setSelectedFile(file?.name ?? "");
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <>
-      <div className={styles.careerPage}>
-        {/* HERO */}
-
-        <section className={styles.heroSection}>
-          <div className="container">
+      <main className={styles.careerPage}>
+        <section className={styles.cultureSection}>
+          <div className={styles.container}>
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="show"
               viewport={VIEWPORT}
-              className={styles.heroInner}
+              className={styles.sectionIntro}
             >
-              <motion.h1 variants={fadeUp} className={styles.heroTitle}>
-                Build Your Career With Us
-              </motion.h1>
+              <motion.div variants={fadeUp}>
+                <div className={styles.eyebrow}>
+                  <span className={styles.eyebrowDot} />
+                  <span className={styles.eyebrowText}>The OutMazed DNA</span>
+                </div>
 
-              <motion.p variants={fadeUp} className={styles.heroText}>
-                Join a team of innovators shaping the future. We're looking for
-                talented individuals ready to make an impact.
+                <h2>Values that guide how we work, grow and serve.</h2>
+              </motion.div>
+
+              <motion.p variants={fadeUp}>
+                We are building a team where travel expertise, technology,
+                creativity and service excellence work together.
               </motion.p>
             </motion.div>
-          </div>
-        </section>
 
-        {/* DNA */}
-
-        <section className={styles.dnaSection}>
-          <div className="container">
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="show"
               viewport={VIEWPORT}
+              className={styles.cultureGrid}
             >
-              <motion.div variants={fadeUp} style={{ textAlign: "center" }}>
-                <div className={styles.departmentBadge}>The OutMazed DNA</div>
-              </motion.div>
+              {cultureItems.map((item) => (
+                <motion.article
+                  key={item.title}
+                  variants={fadeUp}
+                  className={styles.cultureCard}
+                >
+                  <span className={styles.cultureIcon}>
+                    <FontAwesomeIcon icon={item.icon} />
+                  </span>
 
-              <motion.h2 variants={fadeUp} className={styles.dnaHeading}>
-                Our Cultural Commitments
-              </motion.h2>
-
-              <motion.div
-                className={styles.dnaGrid}
-                variants={stagger}
-                initial="hidden"
-                whileInView="show"
-                viewport={VIEWPORT}
-              >
-                <motion.div variants={fadeUp} className={styles.dnaCard}>
-                  <div className={styles.dnaIcon}>
-                    <FontAwesomeIcon
-                      icon={faRocket}
-                      style={{ color: "var(--primary)" }}
-                    />
-                  </div>
-                  <h3 className={styles.dnaCardTitle}>
-                    Solve for the Traveler
-                  </h3>
-                  <p className={styles.dnaCardText}>
-                    We're here to create exceptional travel experiences by
-                    delivering real value for every traveler. Because we don't
-                    just plan trips—we build trust, inspire unforgettable
-                    journeys, and create a travel company people return to again
-                    and again.
-                  </p>
-                </motion.div>
-
-                <motion.div variants={fadeUp} className={styles.dnaCard}>
-                  <div className={styles.dnaIcon}>
-                    <FontAwesomeIcon
-                      icon={faLightbulb}
-                      style={{ color: "var(--primary)" }}
-                    />
-                  </div>
-                  <h3 className={styles.dnaCardTitle}>
-                    Be Bold. Explore Further.
-                  </h3>
-                  <p className={styles.dnaCardText}>
-                    We choose adventure over routine. We embrace new ideas, move
-                    with curiosity, learn from every experience, and see every
-                    journey as an opportunity to grow—both for our travelers and
-                    ourselves.
-                  </p>
-                </motion.div>
-
-                <motion.div variants={fadeUp} className={styles.dnaCard}>
-                  <div className={styles.dnaIcon}>
-                    <FontAwesomeIcon
-                      icon={faWrench}
-                      style={{ color: "var(--primary)" }}
-                    />
-                  </div>
-                  <h3 className={styles.dnaCardTitle}>
-                    Align, Adapt & Journey Forward
-                  </h3>
-                  <p className={styles.dnaCardText}>
-                    Travel moves fast, and so do we. We stay aligned on what
-                    matters most, adapt to every new destination and challenge,
-                    and take action to create seamless experiences without
-                    waiting for perfect conditions.
-                  </p>
-                </motion.div>
-
-                <motion.div variants={fadeUp} className={styles.dnaCard}>
-                  <div className={styles.dnaIcon}>
-                    <FontAwesomeIcon
-                      icon={faHeart}
-                      style={{ color: "var(--primary)" }}
-                    />
-                  </div>
-                  <h3 className={styles.dnaCardTitle}>
-                    Deliver Every Journey with HEART
-                  </h3>
-                  <p className={styles.dnaCardText}>
-                    We make every experience better—for our travelers and for
-                    each other. We lead with humility, empathy, adaptability,
-                    care, and transparency to create journeys people truly
-                    remember.
-                  </p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* JOBS */}
-
-        <section className={styles.jobsSection}>
-          <div className="container">
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={VIEWPORT}
-              className="d-flex flex-column gap-4"
-            >
-              <motion.h2 variants={fadeUp} className={styles.sectionTitle}>
-                Open Positions
-              </motion.h2>
-              {jobs.map((job) => (
-                <motion.div variants={fadeUp}>
-                  <div
-                    key={job.id}
-                    className={styles.jobCard}
-                    onClick={() => setSelectedJob(job)}
-                  >
-                    <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-3">
-                      <div>
-                        <h3 className={styles.jobTitle}>{job.title}</h3>
-
-                        <div className={styles.departmentBadge}>
-                          {job.department}
-                        </div>
-                      </div>
-
-                      <div className={styles.viewBtn}>
-                        <span>View Role</span>
-
-                        <FontAwesomeIcon
-                          icon={faArrowRight}
-                          className={styles.arrowIcon}
-                        />
-                      </div>
-                    </div>
-
-                    <p className={styles.jobDescription}>{job.description}</p>
-
-                    <div className="d-flex flex-wrap gap-4">
-                      <div className={styles.jobMeta}>
-                        <FontAwesomeIcon
-                          icon={faLocationDot}
-                          className={styles.metaIcon}
-                        />
-
-                        <span>{job.location}</span>
-                      </div>
-
-                      <div className={styles.jobMeta}>
-                        <FontAwesomeIcon
-                          icon={faClock}
-                          className={styles.metaIcon}
-                        />
-
-                        <span>{job.type}</span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </motion.article>
               ))}
             </motion.div>
           </div>
         </section>
 
-        {/* CTA */}
+        <section className={styles.jobsSection}>
+          <div className={styles.container}>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+            >
+              <motion.div variants={fadeUp} className={styles.jobsHeader}>
+                <div>
+                  <div className={styles.eyebrow}>
+                    <span className={styles.eyebrowDot} />
+                    <span className={styles.eyebrowText}>Open Positions</span>
+                  </div>
+
+                  <h2>Current opportunities.</h2>
+                </div>
+
+                <p>
+                  All openings are listed below. Select a role to view details
+                  and apply directly.
+                </p>
+              </motion.div>
+
+              <div className={styles.jobsList}>
+                {jobs.map((job) => (
+                  <motion.button
+                    key={job.id}
+                    type="button"
+                    variants={fadeUp}
+                    className={styles.jobCard}
+                    onClick={() => setSelectedJob(job)}
+                  >
+                    <span className={styles.jobMain}>
+                      <span className={styles.department}>
+                        {job.department}
+                      </span>
+
+                      <span className={styles.jobTitle}>{job.title}</span>
+
+                      <span className={styles.jobDescription}>
+                        {job.description}
+                      </span>
+                    </span>
+
+                    <span className={styles.jobInfo}>
+                      <span>
+                        <FontAwesomeIcon icon={faLocationDot} />
+                        {job.location}
+                      </span>
+
+                      <span>
+                        <FontAwesomeIcon icon={faClock} />
+                        {job.type}
+                      </span>
+                    </span>
+
+                    <span className={styles.viewRole}>
+                      View Role
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    </span>
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
         <section className={styles.ctaSection}>
-          <div className="container">
-            <motion.div variants={fadeUp} className={styles.ctaInner}>
-              <h2 className={styles.ctaTitle}>Don't See Your Role?</h2>
+          <div className={styles.container}>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={VIEWPORT}
+              className={styles.ctaBox}
+            >
+              <div>
+                <div className={styles.eyebrow}>
+                  <span className={styles.eyebrowDot} />
+                  <span className={styles.eyebrowText}>Future Roles</span>
+                </div>
 
-              <p className={styles.ctaText}>
-                We're always looking for talented people to join our team. Send
-                us your resume and let us know how you can contribute.
-              </p>
+                <h2>Don&apos;t see the right opening?</h2>
+
+                <p>
+                  Send us your profile and tell us where you can create value
+                  within the OutMazed ecosystem.
+                </p>
+              </div>
 
               <a href="/contact/careers" className={styles.ctaButton}>
                 Send General Application
+                <FontAwesomeIcon icon={faPaperPlane} />
               </a>
             </motion.div>
           </div>
         </section>
-      </div>
+      </main>
 
-      {/* MODAL */}
-      <Modal isOpen={!!selectedJob} onClose={() => setSelectedJob(null)}>
+      <Modal isOpen={!!selectedJob} onClose={closeModal}>
         {selectedJob && (
-          <>
-            <div className={styles.modalTop}>
-              <div className={styles.departmentBadge}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <span className={styles.department}>
                 {selectedJob.department}
-              </div>
+              </span>
 
-              <div className={styles.modalTitleWrap}>
-                <FontAwesomeIcon
-                  icon={faBriefcase}
-                  className={styles.modalTitleIcon}
-                />
+              <h2>{selectedJob.title}</h2>
 
-                <h2 className={styles.modalTitle}>{selectedJob.title}</h2>
-              </div>
+              <div className={styles.modalMeta}>
+                <span>
+                  <FontAwesomeIcon icon={faLocationDot} />
+                  {selectedJob.location}
+                </span>
 
-              <div className="d-flex flex-wrap gap-3 mt-4">
-                <div className={styles.jobMeta}>
-                  <FontAwesomeIcon
-                    icon={faLocationDot}
-                    className={styles.metaIcon}
-                  />
-
-                  <span>{selectedJob.location}</span>
-                </div>
-
-                <div className={styles.jobMeta}>
-                  <FontAwesomeIcon icon={faClock} className={styles.metaIcon} />
-
-                  <span>{selectedJob.type}</span>
-                </div>
+                <span>
+                  <FontAwesomeIcon icon={faClock} />
+                  {selectedJob.type}
+                </span>
               </div>
             </div>
 
-            <p className={styles.modalDescription}>{selectedJob.description}</p>
+            <div className={styles.modalGrid}>
+              <div className={styles.roleDetails}>
+                <h3>About the role</h3>
+                <p>{selectedJob.description}</p>
 
-            <div className={styles.modalSection}>
-              <h4>Responsibilities</h4>
+                <h3>Responsibilities</h3>
 
-              <ul>
-                {selectedJob.responsibilities.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* APPLY FORM */}
-
-            <div className={styles.applyBox}>
-              <div className={styles.applyTitleWrap}>
-                <FontAwesomeIcon
-                  icon={faUserTie}
-                  className={styles.applyIcon}
-                />
-
-                <h4 className={styles.applyTitle}>Apply for this role</h4>
+                <ul>
+                  {selectedJob.responsibilities.map((item) => (
+                    <li key={item}>
+                      <FontAwesomeIcon icon={faCheck} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="row g-3">
-                <div className="col-md-6">
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className={styles.input}
-                  />
+              <div className={styles.applyBox}>
+                <div className={styles.applyHeading}>
+                  <FontAwesomeIcon icon={faUserTie} />
+
+                  <div>
+                    <span>Application Form</span>
+                    <h3>Apply for this role</h3>
+                  </div>
                 </div>
 
-                <div className="col-md-6">
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className={styles.input}
-                  />
-                </div>
-
-                <div className="col-12">
-                  <input
-                    type="text"
-                    placeholder="Portfolio / LinkedIn"
-                    className={styles.input}
-                  />
-                </div>
-
-                <div className="col-12">
-                  <label className={styles.uploadBox}>
-                    <input type="file" className={styles.fileInput} />
-
-                    <FontAwesomeIcon
-                      icon={faFileArrowUp}
-                      className={styles.uploadIcon}
-                    />
-
+                {submitted ? (
+                  <div className={styles.successBox}>
+                    <FontAwesomeIcon icon={faCheck} />
                     <div>
-                      <h5>Upload Resume / CV</h5>
-
-                      <p>PDF, DOC, DOCX (Max 10MB)</p>
+                      <h4>Application received</h4>
+                      <p>This is ready for API, email or CRM integration.</p>
                     </div>
-                  </label>
-                </div>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className={styles.form}>
+                    <div className={styles.formRow}>
+                      <label>
+                        <span>Full Name</span>
+                        <input type="text" required />
+                      </label>
 
-                <div className="col-12">
-                  <textarea
-                    rows={5}
-                    placeholder="Tell us about yourself"
-                    className={styles.textarea}
-                  ></textarea>
-                </div>
+                      <label>
+                        <span>Email Address</span>
+                        <input type="email" required />
+                      </label>
+                    </div>
 
-                <div className="col-12">
-                  <button className={styles.applyBtn}>
-                    <FontAwesomeIcon icon={faPaperPlane} />
+                    <label>
+                      <span>Portfolio / LinkedIn</span>
+                      <input type="url" placeholder="https://" />
+                    </label>
 
-                    <span>Submit Application</span>
-                  </button>
-                </div>
+                    <label className={styles.uploadBox}>
+                      <input
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                        required
+                      />
+
+                      <FontAwesomeIcon icon={faFileArrowUp} />
+
+                      <strong>{selectedFile || "Upload Resume / CV"}</strong>
+                      <small>PDF, DOC, DOCX · Max 10MB</small>
+                    </label>
+
+                    <label>
+                      <span>Tell us about yourself</span>
+                      <textarea rows={5} required />
+                    </label>
+
+                    <button type="submit">
+                      Submit Application
+                      <FontAwesomeIcon icon={faPaperPlane} />
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
-          </>
+          </div>
         )}
       </Modal>
     </>

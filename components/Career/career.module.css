@@ -1,529 +1,679 @@
 .careerPage {
-  min-height: 100vh;
   background: var(--bg-white);
   color: var(--text-dark);
+  overflow: hidden;
 }
 
-/* HERO */
-
-.heroSection {
-  /* background: linear-gradient(
-    135deg,
-    var(--primary) 0%,
-    var(--primary-dark) 100%
-  ); */
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--primary) 20%, transparent),
-      color-mix(in srgb, var(--primary-dark) 70%, transparent)
-    ),
-    url("/images/career/office.jpg");
-  background-size: cover;
-  background-position: center;
-
-  padding: 120px 0;
-
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+.container {
+  width: min(1920px, 92%);
+  margin: 0 auto;
 }
 
-.heroInner {
-  padding: 4rem 0;
-  max-width: 720px;
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
 }
 
-.heroTitle {
-  color: white;
-  font-size: 4rem;
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  background: var(--primary-orange);
+}
+
+.eyebrowText {
+  color: var(--primary-orange);
+  font-size: 0.67rem;
   font-weight: 700;
-  margin-bottom: 24px;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
 }
 
-.heroText {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
-  line-height: 1.7;
+/* Shared section intro */
+
+.sectionIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.45fr);
+  align-items: end;
+  gap: clamp(45px, 7vw, 120px);
+  margin-bottom: clamp(55px, 6vw, 90px);
 }
 
-/* DNA SECTION */
+.sectionIntro h2,
+.jobsHeader h2,
+.ctaBox h2 {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: clamp(2.8rem, 5vw, 6.2rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
 
-.dnaSection {
+.sectionIntro p,
+.jobsHeader p {
+  margin: 0 0 8px;
+  color: var(--text-medium);
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+/* Culture */
+
+.cultureSection {
+  padding: clamp(90px, 9vw, 150px) 0;
   background: var(--bg-white);
 }
 
-.dnaHeading {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.dnaGrid {
+.cultureGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px;
-  margin-top: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border-light);
+  border-left: 1px solid var(--border-light);
 }
 
-.dnaCard {
+.cultureCard {
+  min-height: 360px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 32px 24px;
-  transition: all 0.3s ease;
+  padding: clamp(30px, 3vw, 48px);
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
   background: var(--bg-white);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background-image: linear-gradient(
-    -45deg,
-    var(--bg-muted) 0%,
-    var(--bg-muted) 85%,
-    color-mix(in srgb, var(--primary) 8%, transparent) 85%,
-    color-mix(in srgb, var(--primary) 8%, transparent) 100%
-  );
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease;
 }
 
-.dnaCard:hover {
+.cultureCard:nth-child(even) {
+  background: var(--bg-muted);
+}
+
+.cultureCard:hover {
+  background: var(--primary-dark);
   transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
-.dnaIcon {
-  font-size: 3.5rem;
-  margin-bottom: 24px;
-  height: 80px;
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cultureIcon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin-bottom: auto;
+  border: 1px solid var(--border-light);
+  color: var(--primary);
+  font-size: 1.05rem;
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease;
 }
 
-.dnaCardTitle {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  line-height: 1.4;
+.cultureCard:hover .cultureIcon {
+  background: var(--primary-orange);
+  border-color: var(--primary-orange);
+  color: var(--bg-white);
 }
 
-.dnaCardText {
+.cultureCard h3 {
+  max-width: 290px;
+  margin: 86px 0 18px;
+  color: var(--text-dark);
+  font-size: clamp(1.25rem, 1.6vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.035em;
+  transition: color 250ms ease;
+}
+
+.cultureCard p {
+  max-width: 350px;
+  margin: 0;
   color: var(--text-medium);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  transition: color 250ms ease;
 }
 
-/* JOBS */
+.cultureCard:hover h3 {
+  color: var(--bg-white);
+}
+
+.cultureCard:hover p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Jobs */
 
 .jobsSection {
-  padding: 5rem 0;
+  padding: clamp(90px, 9vw, 150px) 0;
+  background: var(--bg-muted);
 }
 
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
+.jobsHeader {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 0.45fr);
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 58px;
+}
+
+.jobsList {
+  display: grid;
+  border-top: 1px solid var(--border-light);
 }
 
 .jobCard {
-  padding: 32px;
-
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.34fr) auto;
+  align-items: center;
+  gap: clamp(28px, 4vw, 72px);
+  min-height: 190px;
+  padding: clamp(30px, 3.5vw, 56px) 0;
+  border: 0;
+  border-bottom: 1px solid var(--border-light);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  position: relative;
-
-  background-image: linear-gradient(
-    -140deg,
-    var(--bg-muted) 0%,
-    var(--bg-muted) 90%,
-    color-mix(in srgb, var(--primary) 8%, transparent) 90%,
-    color-mix(in srgb, var(--primary) 8%, transparent) 100%
-  );
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    padding-left 240ms ease,
+    background-color 240ms ease;
 }
 
 .jobCard:hover {
-  transform: translateX(6px);
-  box-shadow: var(--shadow-light);
+  padding-left: 30px;
+  background: var(--bg-white);
+}
+
+.jobMain,
+.jobInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.department {
+  width: fit-content;
+  margin-bottom: 16px;
+  color: var(--primary-orange);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .jobTitle {
-  font-size: 1.5rem;
+  color: var(--text-dark);
+  font-size: clamp(1.55rem, 2.2vw, 2.5rem);
   font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.departmentBadge {
-  display: inline-block;
-
-  background: var(--primary);
-
-  color: white;
-
-  padding: 6px 12px;
-
-  font-size: 0.82rem;
-
-  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
 }
 
 .jobDescription {
+  max-width: 760px;
+  margin-top: 14px;
   color: var(--text-medium);
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size: 0.92rem;
+  line-height: 1.75;
 }
 
-.jobMeta {
-  display: flex;
+.jobInfo {
+  gap: 14px;
+}
+
+.jobInfo span {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-
-  background: rgba(0, 0, 0, 0.04);
-
-  padding: 10px 16px;
-
-  font-size: 0.9rem;
-
   color: var(--text-medium);
+  font-size: 0.78rem;
 }
 
-.metaIcon {
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-.viewBtn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
+.jobInfo svg {
   color: var(--primary);
-
-  font-weight: 600;
-
-  font-size: 0.95rem;
 }
 
-.arrowIcon {
-  font-size: 0.85rem;
-  transition: transform 0.25s ease;
+.viewRole {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--primary-dark);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.jobCard:hover .arrowIcon {
+.viewRole svg {
+  width: 42px;
+  height: 42px;
+  padding: 14px;
+  border: 1px solid var(--border-light);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.jobCard:hover .viewRole svg {
+  background: var(--primary-orange);
+  border-color: var(--primary-orange);
+  color: var(--bg-white);
   transform: translateX(4px);
 }
 
 /* CTA */
 
 .ctaSection {
-  background: var(--bg-muted);
-
-  padding: 5rem 0;
-
-  margin-top: 4rem;
+  padding: clamp(90px, 8vw, 140px) 0;
+  background: var(--bg-white);
 }
 
-.ctaInner {
-  max-width: 850px;
-  margin: auto;
-  text-align: center;
+.ctaBox {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 50px;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(50px, 6vw, 90px);
+  background: var(--primary-dark);
+  color: var(--bg-white);
 }
 
-.ctaTitle {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 24px;
+.ctaBox::after {
+  content: "";
+  position: absolute;
+  top: -220px;
+  right: -160px;
+  width: 460px;
+  height: 460px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
 }
 
-.ctaText {
-  color: var(--text-medium);
+.ctaBox h2 {
+  color: var(--bg-white);
+}
 
-  font-size: 1.1rem;
-
+.ctaBox p {
+  max-width: 690px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.96rem;
   line-height: 1.8;
-
-  margin-bottom: 40px;
 }
 
 .ctaButton {
-  background: var(--primary);
-
-  color: white;
-
-  border: none;
-
-  padding: 16px 34px;
-
-  font-weight: 600;
-
-  transition: all 0.25s ease;
+  position: relative;
+  z-index: 2;
+  min-height: 64px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 26px;
+  background: var(--primary-orange);
+  color: var(--bg-white);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
 }
 
 .ctaButton:hover {
-  background: var(--primary-dark);
+  background: var(--bg-white);
+  color: var(--primary-dark);
   transform: translateY(-3px);
 }
 
-/* MODAL */
+/* Modal */
 
-/* MODAL HEADER */
-
-.modalTop {
-  padding-right: 70px;
+.modalContent {
+  width: min(1080px, 100%);
+  color: var(--text-dark);
 }
 
-.modalTitleWrap {
+.modalHeader {
+  padding: clamp(34px, 4vw, 56px);
+  background: var(--primary-dark);
+  color: var(--bg-white);
+}
+
+.modalHeader h2 {
+  margin: 18px 0 0;
+  color: var(--bg-white);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.modalMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.modalMeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+}
+
+.modalMeta svg {
+  color: var(--primary-orange);
+}
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+.roleDetails {
+  padding: clamp(30px, 4vw, 52px);
+  border-right: 1px solid var(--border-light);
+  background: var(--bg-white);
+}
+
+.roleDetails h3 {
+  margin: 0 0 16px;
+  color: var(--primary-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.roleDetails p {
+  margin: 0 0 38px;
+  color: var(--text-medium);
+  line-height: 1.8;
+}
+
+.roleDetails ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roleDetails li {
+  display: flex;
+  gap: 11px;
+  color: var(--text-medium);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.roleDetails li svg {
+  margin-top: 4px;
+  color: var(--primary);
+}
+
+/* Apply form */
+
+.applyBox {
+  padding: clamp(30px, 4vw, 52px);
+  background: var(--bg-muted);
+}
+
+.applyHeading {
   display: flex;
   align-items: center;
   gap: 16px;
-
-  margin-top: 18px;
+  margin-bottom: 30px;
 }
 
-.modalTitleIcon {
-  font-size: 1.4rem;
-  color: var(--primary);
+.applyHeading > svg {
+  width: 48px;
+  height: 48px;
+  padding: 14px;
+  background: var(--primary-dark);
+  color: var(--bg-white);
 }
 
-.modalTitle {
-  font-size: 2.7rem;
-  font-weight: 700;
-
-  line-height: 1.1;
-
-  letter-spacing: -0.03em;
+.applyHeading span {
+  color: var(--primary-orange);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.modalDescription {
-  color: var(--text-medium);
-
-  line-height: 1.9;
-
-  margin: 42px 0;
-
-  max-width: 900px;
-
-  font-size: 1.02rem;
+.applyHeading h3 {
+  margin: 4px 0 0;
+  color: var(--text-dark);
+  font-size: 1.35rem;
 }
 
-/* SECTION */
-
-.modalSection {
-  margin-bottom: 50px;
-}
-
-.modalSection h4 {
-  font-size: 1.3rem;
-  font-weight: 700;
-
-  margin-bottom: 22px;
-}
-
-.modalSection ul {
-  padding-left: 20px;
-}
-
-.modalSection li {
-  margin-bottom: 16px;
-
-  color: var(--text-medium);
-
-  line-height: 1.7;
-}
-
-/* APPLY BOX */
-
-.applyBox {
-  margin-top: 20px;
-
-  padding: 36px;
-
-  background-image: linear-gradient(
-    -145deg,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(255, 255, 255, 0.92) 80%,
-    color-mix(in srgb, var(--primary) 6%, white) 100%
-  );
-
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.applyTitleWrap {
+.form {
   display: flex;
-  align-items: center;
-  gap: 12px;
-
-  margin-bottom: 24px;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.applyIcon {
-  color: var(--primary);
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
 }
 
-.applyTitle {
-  font-size: 1.5rem;
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* INPUTS */
+.form label span {
+  color: var(--text-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
 
-.input,
-.textarea {
+.form input,
+.form textarea {
   width: 100%;
-
-  border: 1px solid rgba(0, 0, 0, 0.08);
-
-  padding: 16px 18px;
-
-  background: rgba(255, 255, 255, 0.85);
-
+  border: 1px solid var(--border-light);
+  border-radius: 0;
+  background: var(--bg-white);
+  color: var(--text-dark);
+  font: inherit;
+  font-size: 0.86rem;
   outline: none;
-
-  transition: all 0.25s ease;
-
-  font-size: 0.96rem;
 }
 
-.input:focus,
-.textarea:focus {
+.form input {
+  height: 52px;
+  padding: 0 15px;
+}
+
+.form textarea {
+  padding: 15px;
+  resize: vertical;
+}
+
+.form input:focus,
+.form textarea:focus {
   border-color: var(--primary);
-
-  background: white;
-
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent);
 }
-
-/* FILE UPLOAD */
 
 .uploadBox {
-  display: flex;
+  display: grid !important;
+  grid-template-columns: 44px 1fr;
   align-items: center;
-  gap: 20px;
-
-  padding: 24px;
-
-  background: rgba(255, 255, 255, 0.7);
-
-  border: 1px dashed rgba(0, 0, 0, 0.14);
-
-  transition: all 0.25s ease;
-
+  gap: 8px 14px;
+  min-height: 98px;
+  padding: 16px;
+  border: 1px dashed var(--border-light);
+  background: var(--bg-white);
   cursor: pointer;
 }
 
-.uploadBox:hover {
-  border-color: var(--primary);
-
-  background: white;
-}
-
-.fileInput {
+.uploadBox input {
   display: none;
 }
 
-.uploadIcon {
-  font-size: 1.8rem;
+.uploadBox svg {
+  grid-row: span 2;
   color: var(--primary);
+  font-size: 1.2rem;
 }
 
-.uploadBox h5 {
-  margin: 0;
-  font-size: 1rem;
+.uploadBox strong {
+  color: var(--text-dark);
+  font-size: 0.82rem;
 }
 
-.uploadBox p {
-  margin: 5px 0 0;
+.uploadBox small {
   color: var(--text-medium);
-  font-size: 0.9rem;
+  font-size: 0.68rem;
 }
 
-/* APPLY BUTTON */
-
-.applyBtn {
+.form button {
+  min-height: 58px;
+  border: 0;
+  background: var(--primary-dark);
+  color: var(--bg-white);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-
-  background: var(--primary);
-  color: white;
-
-  border: none;
-
-  padding: 16px 34px;
-
-  font-weight: 600;
-
-  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition:
+    background-color 220ms ease,
+    transform 220ms ease;
 }
 
-.applyBtn:hover {
-  background: var(--primary-dark);
-
+.form button:hover {
+  background: var(--primary-orange);
   transform: translateY(-2px);
 }
 
-/* MOBILE */
+.successBox {
+  display: flex;
+  gap: 15px;
+  padding: 24px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+}
 
-@media (max-width: 768px) {
-  .heroSection {
-    padding: 80px 0 120px;
+.successBox > svg {
+  width: 42px;
+  height: 42px;
+  padding: 13px;
+  background: var(--primary);
+  color: var(--bg-white);
+}
+
+.successBox h4 {
+  margin: 0 0 6px;
+  color: var(--text-dark);
+}
+
+.successBox p {
+  margin: 0;
+  color: var(--text-medium);
+  font-size: 0.82rem;
+}
+
+/* Responsive */
+
+@media (max-width: 1200px) {
+  .cultureGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .heroTitle {
-    font-size: 2.7rem;
+  .jobsHeader,
+  .sectionIntro,
+  .ctaBox,
+  .modalGrid {
+    grid-template-columns: 1fr;
   }
 
-  .sectionTitle {
-    font-size: 2rem;
+  .jobCard {
+    grid-template-columns: 1fr minmax(190px, 0.4fr);
   }
 
-  .dnaHeading {
-    font-size: 2rem;
+  .viewRole {
+    grid-column: 1 / -1;
   }
 
-  .dnaGrid {
-    gap: 20px;
+  .roleDetails {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: min(1920px, 90%);
   }
 
-  .dnaCard {
-    padding: 24px 16px;
+  .cultureSection,
+  .jobsSection,
+  .ctaSection {
+    padding: 70px 0;
   }
 
-  .dnaIcon {
-    font-size: 2.5rem;
-    height: 60px;
-    width: 60px;
+  .cultureGrid {
+    grid-template-columns: 1fr;
   }
 
-  .modalBox {
-    padding: 24px;
-
-    max-height: 100vh;
-    height: 100vh;
+  .jobCard {
+    grid-template-columns: 1fr;
+    padding: 34px 0;
   }
 
-  .modalTitle {
-    font-size: 2rem;
+  .jobCard:hover {
+    padding-left: 0;
   }
 
-  .closeBtn {
-    width: 40px;
-    height: 40px;
+  .jobInfo {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    width: min(1920px, 88%);
+  }
+
+  .sectionIntro h2,
+  .jobsHeader h2,
+  .ctaBox h2 {
+    font-size: clamp(2.4rem, 12vw, 3.8rem);
+  }
+
+  .cultureCard,
+  .ctaBox,
+  .modalHeader,
+  .roleDetails,
   .applyBox {
-    padding: 24px;
-  }
-
-  .uploadBox {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .applyBtn {
-    width: 100%;
+    padding: 28px 22px;
   }
 }

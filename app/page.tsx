@@ -14,10 +14,12 @@ import StatsSection from "@/components/Home/StatsSection";
 import CommitmentSection from "@/components/Home/CommitmentSection";
 import VisionSection from "@/components/Home/VisionSection";
 import CTASection from "@/components/Home/CTASection";
+import OutmazedLoader from "@/components/UI/Loader/OutmazedLoader";
 
 export default function Home() {
   return (
     <>
+      {/* <OutmazedLoader /> */}
       <Header />
       <HeroHome />
       <MeaningSection />
