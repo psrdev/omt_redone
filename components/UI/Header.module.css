@@ -1,0 +1,849 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border-light);
+  backdrop-filter: blur(18px);
+}
+
+.container {
+  width: min(1920px, 92%);
+  min-height: 86px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 176px;
+  height: auto;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  min-height: 86px;
+  padding: 0 15px;
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.navLink::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+  height: 3px;
+  background: var(--primary-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: var(--primary);
+}
+
+.navLink:hover::before,
+.navLinkActive::before {
+  transform: scaleX(1);
+}
+
+.navTrigger {
+  appearance: none;
+}
+
+.arrow {
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.25s ease;
+}
+
+.navLinkActive .arrow {
+  transform: rotate(225deg) translateY(-1px);
+}
+
+.cta {
+  position: relative;
+  min-height: 46px;
+  padding: 0 24px;
+  background: var(--primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.5s ease;
+}
+
+.cta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0, 104, 175, 0.22);
+}
+
+.cta:hover::after {
+  transform: translateX(120%);
+}
+
+/* Mega */
+
+.mega {
+  position: fixed;
+  left: 50%;
+  top: 86px;
+  width: min(1440px, 92vw);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(14px);
+  transition:
+    opacity 0.24s ease,
+    visibility 0.24s ease,
+    transform 0.24s ease;
+}
+
+.megaOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.megaInner {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 32px 90px rgba(0, 31, 54, 0.16);
+}
+
+.megaInner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 104, 175, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 104, 175, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.megaInner::after {
+  content: "";
+  position: absolute;
+  right: -160px;
+  top: -160px;
+  width: 360px;
+  height: 360px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(242, 133, 101, 0.16),
+    transparent 68%
+  );
+}
+
+.kicker,
+.kickerDark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.kicker {
+  color: #fff;
+}
+
+.kickerDark {
+  color: var(--primary-orange);
+}
+
+.kicker::before,
+.kickerDark::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  background: var(--primary-orange);
+}
+
+/* Tabs */
+
+.tabsLayout {
+  position: relative;
+  z-index: 2;
+  min-height: 460px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+}
+
+.tabsColumn {
+  padding: 42px;
+  background:
+    linear-gradient(135deg, rgba(0, 79, 133, 0.98), rgba(0, 104, 175, 0.96)),
+    var(--primary);
+}
+
+.tabButton {
+  width: 100%;
+  padding: 20px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.tabButton + .tabButton {
+  margin-top: 12px;
+}
+
+.tabButton span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.tabButton small {
+  display: block;
+  max-width: 280px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.tabButton:hover,
+.tabButtonActive {
+  background: #fff;
+  border-color: #fff;
+  color: var(--primary-dark);
+  transform: translateX(8px);
+}
+
+.tabButton:hover small,
+.tabButtonActive small {
+  color: var(--text-medium);
+}
+
+.panel {
+  padding: 42px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 34px;
+  align-items: stretch;
+}
+
+.panelContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panelTag {
+  margin-bottom: 14px;
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.panel h3,
+.simpleContent h3,
+.brandContent h3 {
+  max-width: 680px;
+  margin: 0 0 34px;
+  color: var(--text-dark);
+  font-size: clamp(1.65rem, 2vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.tabImage {
+  min-height: 360px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(0, 104, 175, 0.9), rgba(0, 79, 133, 0.92)),
+    var(--bg-muted);
+}
+
+.tabImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.78;
+  mix-blend-mode: screen;
+  transform: scale(1.02);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tabsLayout:hover .tabImage img {
+  opacity: 0.9;
+  transform: scale(1.06);
+}
+
+/* Links */
+
+.linkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.megaLink,
+.brandLink,
+.imageMegaLink {
+  min-height: 62px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 800;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.megaLink {
+  padding: 16px 18px;
+}
+
+.megaLink i,
+.brandLink i,
+.imageMegaLink i {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  opacity: 0.45;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.megaLink:hover,
+.brandLink:hover,
+.imageMegaLink:hover {
+  color: var(--primary);
+  border-color: rgba(0, 104, 175, 0.26);
+  background: var(--bg-muted);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(0, 31, 54, 0.06);
+}
+
+.megaLink:hover i,
+.brandLink:hover i,
+.imageMegaLink:hover i {
+  opacity: 1;
+  transform: rotate(-45deg) translate(3px, 3px);
+}
+
+/* Simple */
+
+.simpleLayout {
+  position: relative;
+  z-index: 2;
+  min-height: 470px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) 520px;
+  gap: 36px;
+  padding: 42px;
+}
+
+.simpleContent {
+  display: flex;
+  align-items: center;
+}
+
+.imageLinkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.imageMegaLink {
+  min-height: 92px;
+  padding: 10px 16px 10px 10px;
+}
+
+.linkThumb {
+  width: 82px;
+  height: 68px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: var(--bg-muted);
+}
+
+.linkThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imageMegaLink:hover .linkThumb img {
+  transform: scale(1.08);
+}
+
+.linkText {
+  flex: 1;
+}
+
+.imagePanel {
+  min-height: 380px;
+  background:
+    linear-gradient(135deg, rgba(0, 104, 175, 0.88), rgba(0, 79, 133, 0.94)),
+    var(--bg-muted);
+  overflow: hidden;
+}
+
+.imagePanel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+  transform: scale(1.02);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+.simpleLayout:hover .imagePanel img {
+  opacity: 0.9;
+  transform: scale(1.06);
+}
+
+/* Brands */
+
+.brandLayout {
+  position: relative;
+  z-index: 2;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 500px;
+  gap: 36px;
+  padding: 42px;
+}
+
+.brandContent {
+  display: flex;
+  align-items: center;
+}
+
+.brandList {
+  display: grid;
+  gap: 12px;
+  max-width: 660px;
+}
+
+.brandLink {
+  min-height: 76px;
+  padding: 12px 18px 12px 12px;
+}
+
+.brandIcon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-light);
+}
+
+.brandIcon img {
+  max-width: 38px;
+  max-height: 38px;
+  object-fit: contain;
+}
+
+.brandName {
+  flex: 1;
+}
+
+.brandPreviewWrap {
+  display: grid;
+  grid-template-rows: 1fr 0.8fr;
+  gap: 14px;
+}
+
+.logoPreview,
+.brandPhoto {
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.logoPreview {
+  padding: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(242, 133, 101, 0.16),
+      transparent 38%
+    ),
+    linear-gradient(135deg, rgba(0, 104, 175, 0.08), rgba(0, 79, 133, 0.04));
+}
+
+.logoPreview img {
+  width: min(320px, 86%);
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 28px rgba(0, 31, 54, 0.12));
+  animation: imageReveal 0.28s ease;
+}
+
+.brandPhoto {
+  min-height: 190px;
+  background:
+    linear-gradient(135deg, rgba(0, 104, 175, 0.86), rgba(0, 79, 133, 0.9)),
+    var(--bg-muted);
+}
+
+.brandPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.76;
+  mix-blend-mode: screen;
+  animation: imageReveal 0.28s ease;
+}
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile */
+
+.menuButton {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-light);
+  background: #fff;
+  cursor: pointer;
+}
+
+.menuButton span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  background: var(--text-dark);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.menuButtonActive span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuButtonActive span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButtonActive span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 1260px) {
+  .navLink {
+    padding-inline: 11px;
+    font-size: 0.9rem;
+  }
+
+  .cta {
+    padding-inline: 18px;
+  }
+
+  .mega {
+    width: min(1200px, 92vw);
+  }
+
+  .panel {
+    grid-template-columns: 1fr 360px;
+  }
+
+  .simpleLayout,
+  .brandLayout {
+    grid-template-columns: 1fr 430px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    min-height: 78px;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 78px;
+    display: block;
+    max-height: calc(100vh - 78px);
+    overflow-y: auto;
+    padding: 18px 4%;
+    background: #fff;
+    border-top: 1px solid var(--border-light);
+    box-shadow: 0 28px 60px rgba(0, 31, 54, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition:
+      opacity 0.24s ease,
+      visibility 0.24s ease,
+      transform 0.24s ease;
+  }
+
+  .navOpen {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navList {
+    display: block;
+    width: 100%;
+  }
+
+  .navItem {
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .navLink {
+    width: 100%;
+    min-height: 58px;
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  .navLink::before {
+    display: none;
+  }
+
+  .cta {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .mega {
+    position: static;
+    width: 100%;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
+  }
+
+  .megaOpen {
+    display: block;
+    transform: none;
+  }
+
+  .megaInner {
+    margin-bottom: 18px;
+    box-shadow: none;
+  }
+
+  .tabsLayout,
+  .simpleLayout,
+  .brandLayout {
+    display: block;
+    min-height: auto;
+  }
+
+  .tabsColumn,
+  .panel,
+  .simpleLayout,
+  .brandLayout {
+    padding: 22px;
+  }
+
+  .panel {
+    display: block;
+    padding-top: 24px;
+  }
+
+  .tabButton:hover,
+  .tabButtonActive {
+    transform: none;
+  }
+
+  .panel h3,
+  .simpleContent h3,
+  .brandContent h3 {
+    font-size: 1.45rem;
+    letter-spacing: -0.035em;
+  }
+
+  .linkGrid,
+  .imageLinkGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tabImage,
+  .imagePanel,
+  .brandPreviewWrap {
+    display: none;
+  }
+
+  .simpleContent,
+  .brandContent {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo img {
+    width: 150px;
+  }
+
+  .megaLink,
+  .brandLink,
+  .imageMegaLink {
+    min-height: 56px;
+    font-size: 0.9rem;
+  }
+
+  .brandLink,
+  .imageMegaLink {
+    padding: 10px;
+  }
+
+  .tabsColumn,
+  .panel,
+  .simpleLayout,
+  .brandLayout {
+    padding: 18px;
+  }
+
+  .linkThumb {
+    width: 68px;
+    height: 56px;
+  }
+
+  .brandIcon {
+    width: 46px;
+    height: 46px;
+  }
+}

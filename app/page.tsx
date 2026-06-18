@@ -1,6 +1,7 @@
 "use client";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/UI/Header/Header";
+// import Header from "@/components/UI/Header";
 import HeroHome from "@/components/UI/Hero/HeroHome";
 import BrandsMarquee from "@/components/Home/BrandsMarquee";
 import { motion } from "framer-motion";
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <>
       {/* <OutmazedLoader /> */}
+
       <Header />
       <HeroHome />
       <MeaningSection />
