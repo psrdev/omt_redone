@@ -15,7 +15,7 @@ export default function ClientPage() {
         highlightedTitle="Industry Leaders."
         description="Our clients are at the heart of everything we do. We are proud to be the trusted travel partner for travel agencies, tour operators, corporate travel companies, and industry professionals who rely on OutMazed Tourism for dependable service, competitive pricing, and seamless travel solutions."
         subDescription="Their continued trust and partnership inspire us to deliver excellence, innovation, and value in every booking and every journey—building lasting relationships through reliability, collaboration, and shared growth."
-        image="/images/Hero/clients.png"
+        image="/images/hero/clients.png"
         imageAlt="OutMazed trusted clients and travel industry partnerships"
       />
       <ClientsPage />
