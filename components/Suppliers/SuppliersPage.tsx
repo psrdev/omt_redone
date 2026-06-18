@@ -142,18 +142,6 @@ const logoStagger = {
   },
 };
 
-const logoFade: variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
 function NetworkIcon() {
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -279,7 +267,7 @@ export default function SuppliersPage() {
               <motion.article
                 key={supplier.name}
                 className={styles.supplierCard}
-                variants={logoFade}
+                variants={fadeUp}
               >
                 <div className={styles.logoImage}>
                   <Image
